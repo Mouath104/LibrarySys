@@ -1,0 +1,8 @@
+# Add the following Features to the student user:
+  - A student can see his/her profile
+  - Edit their profile
+  - Can change password
+
+# Add a student photo ...
+
+# Customize the Frontend-side ...
