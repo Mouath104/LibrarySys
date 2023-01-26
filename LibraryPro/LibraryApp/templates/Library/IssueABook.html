@@ -1,0 +1,7 @@
+<form action="{% url 'LibraryApp:IssueABook' %}" method="post">
+    <div class="Father">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Add">
+    </div>
+</form>

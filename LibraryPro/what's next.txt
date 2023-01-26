@@ -1,0 +1,6 @@
+# Need to Add an Authorisations, Authentications to the views.
+# Need to add the following Features:
+    -A student can see his/her profile
+    -Edit their profile
+    -Can change password
+# Customize the Frontend ... 

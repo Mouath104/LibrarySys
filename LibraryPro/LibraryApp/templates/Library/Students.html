@@ -1,0 +1,15 @@
+<table border="1">
+    <th>F. Name</th>
+    <th>L. Name</th>
+    <th>Tel No.</th>
+    {% for i in students %}
+    <tr>
+        <td>{{i.FName}}</td>
+        <td>{{i.LName}}</td>
+        <td>{{i.TelNo}}</td>
+        <td>{{i.id}}</td>
+        <td>{{i.user.id}}</td>
+        <td><a href="{% url 'LibraryApp:delStudents' i.id %}">X</a></td>
+    </tr>
+    {% endfor %}
+</table>

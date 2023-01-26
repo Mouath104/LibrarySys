@@ -1,0 +1,13 @@
+<table border="1">
+    <th>Name</th>
+    <th>Price</th>
+    <th>Desc</th>
+    {% for i in books %}
+    <tr>
+        <td>{{i.Name}}</td>
+        <td>{{i.Price}}</td>
+        <td>{{i.Desc}}</td>
+        <td><a href="{% url 'LibraryApp:delBook' i.id %}">X</a></td>
+    </tr>
+    {% endfor %}
+</table>
