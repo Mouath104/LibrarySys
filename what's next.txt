@@ -1,8 +1,14 @@
-# Add the following Features to the student user:
-  - A student can see his/her profile
-  - Edit their profile
-  - Can change password
+# Need to Add an Authorisations, Authentications to the views.
+# Need to add the following Features:
+    -A student can see his/her profile
+    -Edit their profile
+    -Can change password
+# Customize the Frontend ... 
 
-# Add a student photo ...
+still: 
 
-# Customize the Frontend-side ...
+# don't forget to make the autherisatioons on both templates, views,
+# Error in Line 61 in Views.py
+# student can change the password
+# Admin can Add a photo for the students
+# Admin can Add a photo for the Books
