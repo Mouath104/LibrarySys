@@ -1,4 +1,6 @@
+{% extends 'base.html' %}
 
+{% block content %}
 <form action="{% url 'LibraryApp:AddBooks' %}" method="post">
     <div class="Father">
         {% csrf_token %}
@@ -6,3 +8,4 @@
         <input type="submit" value="Add">
     </div>
 </form>
+{% endblock %}

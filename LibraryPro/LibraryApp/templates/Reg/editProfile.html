@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form action="{% url 'LibraryApp:editProfile' %}" method="post">
+<div class="editProForm">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">Done</button>
+</div>
+</form>
+
+{% endblock %}

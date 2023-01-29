@@ -4,3 +4,11 @@
     -Edit their profile
     -Can change password
 # Customize the Frontend ... 
+
+still: 
+
+# don't forget to make the autherisatioons on both templates, views,
+# Error in Line 61 in Views.py
+# student can change the password
+# Admin can Add a photo for the students
+# Admin can Add a photo for the Books

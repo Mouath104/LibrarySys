@@ -1,5 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
 <div>
     {% for i in IssuedBooks %}
         <div>{{i.student.FName}} {{i.student.LName}} Borrowed [{{i.book.Name}}]</div>
     {% endfor %}
 </div>
+{% endblock %}

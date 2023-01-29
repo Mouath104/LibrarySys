@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="home-container">
+    {% if user.is_authenticated %}
+    <p>Welcome {{user.student.FName}} to the Library school App</p>
+    {% else %}
+    <p>Welcome to the Library school App</p>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,5 +1,5 @@
 from django import forms
-from LibraryApp.models import Book,Issued_Book,User
+from LibraryApp.models import Book,Issued_Book,User,Student
 
 class AddBooksForm(forms.ModelForm):   
     class Meta:
@@ -11,6 +11,10 @@ class Issued_BookForm(forms.ModelForm):
         model=Issued_Book
         exclude = ("user", )
 
+class editProfileForm(forms.ModelForm):
+    class Meta:
+        model=Student
+        exclude = ("user", )
 # class regStudentForm(forms.ModelForm):
 #     class Meta:
 #         model=User
