@@ -17,14 +17,18 @@
         <nav>
             <ul id="menuList">
               {% if user.is_authenticated %}
-              {% if authorized %} 
-                <li><a href="http://127.0.0.1:8000/admin/">Admin</a></li>
-              {% endif %}
-                <li><a href="{% url 'LibraryApp:Issued_Books' %}"><i class="fa fa-address-book-o" aria-hidden="true"></i> Issued Books </a></li>
-                <li><a href="{% url 'LibraryApp:logout' %}"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
-                <li><a href="{% url 'LibraryApp:Profile' %}"><i class="fa fa-user" aria-hidden="true"></i> Profile</a></li>
+                {% if user.is_superuser %} 
+                    <li><a href="http://127.0.0.1:8000/admin/">Admin</a></li>
+                    <li><a href="{% url 'LibraryApp:Books' %}">Books</a></li>
+                    <li><a href="{% url 'LibraryApp:Students' %}">Students</a></li>
+                    <li><a href="{% url 'LibraryApp:IssueABook' %}">IssueABook</a></li>
+                  
+                {% endif %}
+                  <li><a href="{% url 'LibraryApp:Issued_Books' %}"><i class="fa fa-address-book-o" aria-hidden="true"></i> Issued Books </a></li>
+                  <li><a href="{% url 'LibraryApp:logout' %}"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
+                  <li><a href="{% url 'LibraryApp:Profile' %}"><i class="fa fa-user" aria-hidden="true"></i> Profile</a></li>
               {% else %}
-              <li><a class="navbar-link" href="{% url 'LibraryApp:login' %}">Login <i class="fa fa-sign-in" aria-hidden="true"></i></a></li>
+                <li><a class="navbar-link" href="{% url 'LibraryApp:login' %}">Login <i class="fa fa-sign-in" aria-hidden="true"></i></a></li>
               {% endif %}
             </ul>
         </nav>

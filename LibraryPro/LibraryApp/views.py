@@ -1,4 +1,5 @@
 from django.shortcuts import render,redirect
+from django.urls import reverse_lazy
 from LibraryApp import models
 from .forms import AddBooksForm,Issued_BookForm,editProfileForm
 from django.contrib.auth import login, authenticate
@@ -19,7 +20,7 @@ def user_logout(request):
         logout(request)
         return redirect("LibraryApp:home")
 #Login
-def login(req):
+def login(req): 
 
     if(req.user.is_authenticated):
         return redirect("LibraryApp:Issued_Books") #any home page
@@ -43,75 +44,98 @@ def login(req):
         return render(request=req, template_name="Reg/Login.html", context={"login_form":form})
 
 def Profile(req):
-    student=models.Student.objects.get(id=req.user.student.id)
-    con={
-        'student':student
-    }
-    return render(req,'Reg/Profile.html',con)
+    if(req.user.is_authenticated): #in case if the user tried to put the URL manually :d
+        student=models.Student.objects.get(id=req.user.student.id)
+        con={
+            'student':student
+        }
+        return render(req,'Reg/Profile.html',con)
+    else:
+        return HttpResponse('impossible, need to login!')  # to be replaced by Messsege later
 
 def chnagePass(req):
     pass
 
 def editProfile(req):
-    form = editProfileForm(req.POST or None)
-    if req.method=='POST':
-        if form.is_valid:
-            pform = form.save(commit=False)
-            pform.user=req.user
-            pform.save()
-            return redirect('LibraryApp:Profile')
+    if(req.user.is_authenticated): #in case if the user tried to put the URL manually :d
+        try:
+            std = req.user.student
+        except Students.DoesNotExist:
+            std = Students(user=req.user)
+        if req.method=='POST':
+            form = editProfileForm(req.POST, instance=std)
+            if form.is_valid():
+                form.save()
+                return redirect('LibraryApp:Profile')
+        else:
+            form = editProfileForm(instance=std)
+            return render(req,'Reg/editProfile.html',{'form':form})
     else:
-        std=models.Student.objects.get(id=req.user.student.id)
-        form = editProfileForm(instance=std)
-        return render(req,'Reg/editProfile.html',{'form':form})
-
+        return HttpResponse('impossible, need to login!')  # to be replaced by Messsege later  
+                  
 #### Library
 
 def AddBooks(req):
-    form = AddBooksForm(req.POST or None)
-    if req.method =="POST":
-        if form.is_valid():
-            form = AddBooksForm(req.POST) 
-            form.save()
-            return redirect('LibraryApp:Books')
-    return render(req,'Library/addBooks.html',{'form':form})
+    if req.user.is_superuser:    
+        form = AddBooksForm(req.POST or None)
+        if req.method =="POST":
+            if form.is_valid():
+                form.save()
+                return redirect('LibraryApp:Books')
+        return render(req,'Library/addBooks.html',{'form':form})
+    else:
+        return HttpResponse('impossible, not Autherized!')  # to be replaced by Messsege later  
 
 def Books(req):
-    books=models.Book.objects.all()
-    con={
-        'books':books
-    }
-    return render(req,'Library/Books.html',con)
+    if(req.user.is_superuser):    
+        books=models.Book.objects.all()
+        con={
+            'books':books
+        }
+        return render(req,'Library/Books.html',con)
+    else:
+        return HttpResponse('impossible, not Autherized!')  # to be replaced by Messsege later  
+
 
 def delBook(req,pk):
-    deletedBook=models.Book.objects.get(id=pk)
-    deletedBook.delete()
-    
-    return redirect('LibraryApp:Books')
+    if(req.user.is_superuser): 
+        deletedBook=models.Book.objects.get(id=pk)
+        deletedBook.delete()
+        return redirect('LibraryApp:Books')
+    else:
+        return HttpResponse('impossible, not Autherized!')  # to be replaced by Messsege later 
 
 def Students(req):
-    students=models.Student.objects.all()
-    con={
-        'students':students
-    }
-    return render(req,'Library/Students.html',con)
+    if(req.user.is_superuser): 
+        students=models.Student.objects.all()
+        con={
+            'students':students
+        }
+        return render(req,'Library/Students.html',con)
+    else:
+        return HttpResponse('impossible, not Autherized!')  # to be replaced by Messsege later 
 
 def delStudents(req,pk):
-    deletedStudent=models.Student.objects.get(id=pk)
-    deletedStudent.delete()
+    if(req.user.is_superuser): 
+        deletedStudent=models.Student.objects.get(id=pk)
+        deletedStudent.delete()
 
-    return redirect('LibraryApp:Students')
+        return redirect('LibraryApp:Students')
+    else:
+        return HttpResponse('impossible, not Autherized!')  # to be replaced by Messsege later 
+
 
 def IssueABook(req):
-    form=Issued_BookForm(req.POST or None)
-    if req.method=='POST':
-        if form.is_valid():
-            form=Issued_BookForm(req.POST)
-            form.save()
-            return redirect('LibraryApp:Issued_Books')
+    if(req.user.is_superuser): 
+        form=Issued_BookForm(req.POST or None)
+        if req.method=='POST':
+            if form.is_valid():
+                form.save()
+                return redirect('LibraryApp:Issued_Books')
+        else:
+            return render(req,'Library/IssueABook.html',{'form':form})
     else:
-        form=Issued_BookForm()
-        return render(req,'Library/IssueABook.html',{'form':form})
+        return HttpResponse('impossible, not Autherized!')  # to be replaced by Messsege later 
 
 def Issued_Books(req):
     if(req.user.is_authenticated):

@@ -4,12 +4,12 @@ from LibraryApp.models import Book,Issued_Book,User,Student
 class AddBooksForm(forms.ModelForm):   
     class Meta:
         model = Book
-        exclude = ("user", )
+        exclude = ("", )
 
 class Issued_BookForm(forms.ModelForm):
     class Meta:
         model=Issued_Book
-        exclude = ("user", )
+        exclude = ("", )
 
 class editProfileForm(forms.ModelForm):
     class Meta:
