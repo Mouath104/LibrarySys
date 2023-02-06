@@ -54,7 +54,18 @@ def Profile(req):
         return HttpResponse('impossible, need to login!')  # to be replaced by Messsege later
 
 def chnagePass(req):
-    pass
+    user=models.User.objects.get(id=req.user.id)
+    if req.method=="POST":
+        user.set_password(req.POST['new-pass'])
+        user.save()
+        if(req.POST['old-pass']==req.user.password):
+            if(req.POST['new-pass']==req.POST['confirm-new-pass']):
+                user.password=req.POST['new-pass']
+                user.save()
+        return redirect('LibraryApp:Profile')
+        
+    else:
+        return render(req,'Reg/changePass.html',{})
 
 def editProfile(req):
     if(req.user.is_authenticated): #in case if the user tried to put the URL manually :d

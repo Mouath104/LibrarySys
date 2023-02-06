@@ -15,7 +15,9 @@ class editProfileForm(forms.ModelForm):
     class Meta:
         model=Student
         exclude = ("user", )
-# class regStudentForm(forms.ModelForm):
+
+# class chnagePassForm()
+# # class regStudentForm(forms.ModelForm):
 #     class Meta:
 #         model=User
 #         exclude = ("last_login","is_superuser","is_staff", "is_active","date_joined","groups","user_permissions")

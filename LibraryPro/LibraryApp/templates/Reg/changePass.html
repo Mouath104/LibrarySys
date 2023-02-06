@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form action="{% url 'LibraryApp:chnagePass' %}" method="post">
+<div class="editPassForm">
+    {% csrf_token %}
+    <input type="password" name="old-pass" id="old-pass" placeholder="old-pass">
+    <input type="password" name="new-pass" id="new-pass" placeholder="new-pass">
+    <input type="password" name="confirm-new-pass" id="confirm-new-pass" placeholder="confirm-new-pass">
+    <button type="submit">Change Password</button>
+</div>
+</form>
+
+{% endblock %}
