@@ -8,7 +8,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout
-
+from django.contrib.auth import update_session_auth_hash
 # Create your views here.
 
 #home Page
@@ -51,17 +51,23 @@ def Profile(req):
         }
         return render(req,'Reg/Profile.html',con)
     else:
-        return HttpResponse('impossible, need to login!')  # to be replaced by Messsege later
+        msg='impossible, need to login!'
+        return render(req,'Reg/ERR.html',{'msg':msg})
+        # return HttpResponse('impossible, need to login!')  # to be replaced by Messsege later
 
 def chnagePass(req):
     user=models.User.objects.get(id=req.user.id)
     if req.method=="POST":
-        user.set_password(req.POST['new-pass'])
-        user.save()
-        if(req.POST['old-pass']==req.user.password):
-            if(req.POST['new-pass']==req.POST['confirm-new-pass']):
-                user.password=req.POST['new-pass']
-                user.save()
+        if user.check_password(req.POST['curr-pass']):
+            user.set_password(req.POST['new-pass'])
+            user.save()
+            update_session_auth_hash(req,user) # to keep user logged in after changing the Password
+        # if(req.POST['old-pass']==req.user.password):
+        #     if(req.POST['new-pass']==req.POST['confirm-new-pass']):
+        #         user.password=req.POST['new-pass']
+        #         user.save()
+        else:
+            return HttpResponse('Not Equal') # to be replaced by client-side validations
         return redirect('LibraryApp:Profile')
         
     else:
@@ -82,7 +88,9 @@ def editProfile(req):
             form = editProfileForm(instance=std)
             return render(req,'Reg/editProfile.html',{'form':form})
     else:
-        return HttpResponse('impossible, need to login!')  # to be replaced by Messsege later  
+        msg='impossible, need to login!'
+        return render(req,'Reg/ERR.html',{'msg':msg})
+        # return HttpResponse('impossible, need to login!')  # to be replaced by Messsege later  
                   
 #### Library
 
