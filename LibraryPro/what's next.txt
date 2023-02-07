@@ -1,6 +1,6 @@
 $$$$ still: 
 
-# Admin can Add a photo for the students
+# Admin can Add a photo for the students # still doesn't store it in media folder
 # Admin can Add a photo for the Books
 # Customize the Frontend ... 
 
@@ -9,7 +9,10 @@ $$$$ Done:
 # don't forget to make the autherisatioons on both templates, views, %% Done
 # Error in Line 61 in Views.py  %% finally, solve it. the thing is that u can't edit the student by adding a new user to it, u need put it in instance.
 # student can change the password
+# admin can add students 
 
 $$$$ New: 
     # prevent the already Issued Books to Appear when Issuing a Book, as it can't be issued while it is.
     # Make messeges Appear when faliure/sucess Login,Adding, Deleting and Updating
+    # confirm that the username entered when registering Student is unique
+    

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form action="{% url 'LibraryApp:AddStudents' %}" method="post">
+    <div class="AddStudents">
+        {% csrf_token %}
+        <p>
+          <label for="id_userName">Username:</label>
+          <input type="text" name="username" maxlength="10" required="" id="id_userName">
+        </p>
+        <p>
+          <label for="id_Password">Password:</label>
+          <input type="password" name="password" required="" id="id_Password">
+        </p>
+        {{form.as_p}}
+        <input type="submit" value="Login">
+    </div>
+</form>
+
+<!-- <h2 class="my-4">Movies</h2>
+<div class="row">
+  {% for m in movies %}
+  <div class="col-lg-4 col-md-6 col-sm-12 pb-4">
+    <div class="card h-100 p-4">
+      <img src="{{ m.image.url }}" class="card-img-top">
+      <a href="/media/{{m.file}}">View Script</a>
+    </div>
+  </div>
+  {% empty %}
+  <p>No movies added.</p>
+  {% endfor %}
+</div> -->
+
+{% endblock %}

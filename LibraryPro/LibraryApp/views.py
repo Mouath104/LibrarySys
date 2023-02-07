@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.urls import reverse_lazy
 from LibraryApp import models
-from .forms import AddBooksForm,Issued_BookForm,editProfileForm
+from .forms import AddBooksForm,Issued_BookForm,editProfileForm,AddStudentsForm
 from django.contrib.auth import login, authenticate
 from django.http import HttpResponse,HttpResponseRedirect
 from django.contrib.auth.forms import AuthenticationForm
@@ -94,6 +94,23 @@ def editProfile(req):
                   
 #### Library
 
+def AddStudents(req):
+    if req.user.is_superuser:   
+        if req.method=='POST':
+            form = AddStudentsForm(req.POST,req.FILES)
+            if form.is_valid():
+                user=models.User.objects.create(username=req.POST['username'],password=req.POST['password'])
+                stdForm=form.save(commit=False)
+                stdForm.image=req.FILES
+                stdForm.user=user
+                stdForm.save()
+                return redirect('LibraryApp:Students')
+        else:
+            form = AddStudentsForm()
+            return render(req,'Library/addStudent.html',{'form':form})
+    else:
+        return HttpResponse('impossible, not Autherized!')  # to be replaced by Messsege later
+          
 def AddBooks(req):
     if req.user.is_superuser:    
         form = AddBooksForm(req.POST or None)

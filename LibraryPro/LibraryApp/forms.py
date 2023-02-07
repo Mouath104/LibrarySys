@@ -1,6 +1,16 @@
 from django import forms
 from LibraryApp.models import Book,Issued_Book,User,Student
 
+# class AddUserForm(forms.ModelForm):
+#     class Meta:
+#         model=User
+#         fields=("username","password",)
+
+class AddStudentsForm(forms.ModelForm):
+    class Meta:
+        model=Student
+        exclude=("user",)
+
 class AddBooksForm(forms.ModelForm):   
     class Meta:
         model = Book

@@ -11,6 +11,10 @@ class Student(models.Model):
         User,
         on_delete=models.CASCADE
     )
+    # file = models.FileField(upload_to='documents/',default='default.jpg')
+    image = models.ImageField(upload_to='images/',  blank=True)
+    # std_img=models.ImageField(upload_to='images/', default='default.jpg')
+
     def __str__(self):
         return f'{self.FName} {self.LName}'
         

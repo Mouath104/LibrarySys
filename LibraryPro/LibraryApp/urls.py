@@ -11,6 +11,7 @@ urlpatterns = [
     path('editProfile/', views.editProfile,name='editProfile'),
     path('chnagePass/', views.chnagePass,name='chnagePass'),
     #Library
+    path('AddStudents/', views.AddStudents, name='AddStudents'),
     path('AddBooks/', views.AddBooks,name='AddBooks'),
     path('Books/', views.Books, name='Books'),
     path('delBook/<int:pk>/', views.delBook, name='delBook'),
