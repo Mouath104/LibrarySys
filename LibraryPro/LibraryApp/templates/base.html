@@ -11,51 +11,52 @@
     <link rel="stylesheet" href="{% static 'js/main.js' %}">
 </head>
 <body>
-  <div class="all">
-    <div class="nav-container">
-      <div class="navbar">
-        <a href="{% url 'LibraryApp:home' %}">School Library</a>
+  <div class="container">
+    <div class="navbar">
+        <a href="{% url 'LibraryApp:home' %}"><img src={% static 'images/logo.png' %} alt="" class="logo"></a>
         <nav>
             <ul id="menuList">
               {% if user.is_authenticated %}
                 {% if user.is_superuser %} 
-                    <li><a href="http://127.0.0.1:8000/admin/">Admin</a></li>
-                    <li><a href="{% url 'LibraryApp:Books' %}">Books</a></li>
-                    <li><a href="{% url 'LibraryApp:Students' %}">Students</a></li>
-                    <li><a href="{% url 'LibraryApp:IssueABook' %}">IssueABook</a></li>
+                    <li><a href="http://127.0.0.1:8000/admin/"><i class="fa fa-user" aria-hidden="true"></i> Admin</a></li>
+                    <li><a href="{% url 'LibraryApp:Books' %}"><i class="fa fa-book" aria-hidden="true"></i> Books</a></li>
+                    <li><a href="{% url 'LibraryApp:Students' %}"><i class="fa fa-graduation-cap" aria-hidden="true"></i> Students</a></li>
+                    <li><a href="{% url 'LibraryApp:IssueABook' %}"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Issue</a></li>
                   
                 {% endif %}
                   <li><a href="{% url 'LibraryApp:Issued_Books' %}"><i class="fa fa-address-book-o" aria-hidden="true"></i> Issued Books </a></li>
-                  <li><a href="{% url 'LibraryApp:logout' %}"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
                   <li><a href="{% url 'LibraryApp:Profile' %}"><i class="fa fa-user" aria-hidden="true"></i> Profile</a></li>
+                  <li><a href="{% url 'LibraryApp:logout' %}"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
               {% else %}
                 <li><a class="navbar-link" href="{% url 'LibraryApp:login' %}">Login <i class="fa fa-sign-in" aria-hidden="true"></i></a></li>
               {% endif %}
             </ul>
         </nav>
-        <i class="fa fa-bars" aria-hidden="true" onclick="togglemenu()"></i>
-    </div>
+        <img src={% static 'images/menu.png' %} alt="" class="menu-icon" onclick="togglemenu()">
     </div>
 
-      {% block content %}
-      {% endblock %}
-      <footer>
-        <div class="footer">
-        <div class="row">
-        <a href="https://www.facebook.com/moath.mubaslat/" target="_blank"><i class="fa fa-facebook"></i></a>
-        <a href="https://www.linkedin.com/in/mouath-almobaslat-89a41a233/" target="_blank"><i class="fa fa-linkedin"></i></a>
-        <a href="https://github.com/Mouath104/LibrarySys-v1.0" target="_blank"><i class="fa fa-github"></i></a>
-        </div>
+    {% block content %}
+    {% endblock %}
 
-        <div class="row">
-        LibrarySys Copyright © 2023 LibrarySys - All rights reserved
+  </div>
+  <footer>
+    <div class="footer">
+    <div class="row">
+    <a href="https://www.facebook.com/moath.mubaslat/" target="_blank"><i class="fa fa-facebook"></i></a>
+    <a href="https://www.linkedin.com/in/mouath-almobaslat-89a41a233/" target="_blank"><i class="fa fa-linkedin"></i></a>
+    <a href="https://github.com/Mouath104/LibrarySys-v1.0" target="_blank"><i class="fa fa-github"></i></a>
+    </div>
+
+    <div class="row">
+    LibrarySys Copyright © 2023 LibrarySys - All rights reserved
+    </div>
+    <div class="row">
+        Made with ♥ by Mouath
         </div>
-        <div class="row">
-            Made with ♥ by Mouath
-            </div>
-        </div>
-        </footer>
-        <script src="{% static 'js/jquery-3.6.3.min.js' %}"></script>
-        <script src="{% static 'js/main.js' %}"></script>
+    </div>
+</footer>
+
+    <script src="{% static 'js/jquery-3.6.3.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
 </body>
 </html>

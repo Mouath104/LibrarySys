@@ -1,3 +1,110 @@
+/*Navbar*/
+*{
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.container{
+  width: 100%;
+  min-height: 66vh;
+  padding-left: 8%;
+  padding-right: 8%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.navbar{
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.navbar .logo{
+  width: 50px;
+  cursor: pointer;
+  margin: 30px 0;
+}
+
+.menu-icon{
+  width: 20px;
+  cursor: pointer;
+  display: none;
+}
+
+.navbar nav{
+  flex: 1;
+  text-align: right;
+}
+
+.navbar nav ul li{
+  list-style: none;
+  display: inline-block;
+  margin-right: 30px;
+}
+
+.navbar nav ul li a{
+  text-decoration: none;
+  color: #000;
+  font-size: 14px;
+}
+
+.navbar nav ul li a:hover{
+  color: #ff5ea2;
+}
+
+@media only screen and (max-width:700px){
+  nav ul{
+      width: 100%;
+      background: linear-gradient(to right,#fb5283,#ff3527);
+      position: absolute;
+      top: 75px;
+      right:0;
+      z-index: 2;
+  }
+  nav ul li{
+      display: block;
+      margin-top: 10px;
+      margin-bottom: 10px;
+  }
+  nav ul li a{
+      color: #fff;
+
+  }
+
+  .menu-icon{
+      display: block;
+  }
+
+  #menuList{
+      overflow: hidden;
+      transition: 0.5s;
+  }
+  .fa {
+    font-size: 2em;
+  }
+
+}
+
+/* Footer */
+.footer{
+  display: flex;
+  flex-direction: column;
+  background-color: #fafafa;
+  padding: 3rem 1.5rem 3rem 1.5rem;
+  margin-top: 20px;
+  /* width: 100%; */
+  align-items: center;
+}
+
+.footer .row{
+  text-align: center;
+  padding: 5px 0;
+}
+.footer .fa {
+  font-size: 1.5em;
+  padding: 0 10px 0 10px;
+}
+
 /* editPassForm */
 .editPassForm {
     display: flex;
