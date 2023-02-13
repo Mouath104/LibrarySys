@@ -9,11 +9,19 @@
     <link rel="stylesheet" href="{% static 'font-awesome-4.7.0/css/font-awesome.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <link rel="stylesheet" href="{% static 'js/main.js' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="container">
     <div class="navbar">
-        <a href="{% url 'LibraryApp:home' %}"><img src={% static 'images/logo.png' %} alt="" class="logo"></a>
+        <a href="{% url 'LibraryApp:home' %}" class="site-title">
+          <div>
+            <img src={% static 'images/site-icon.png' %} alt="" class="logo">
+            <span>Library</span>
+          </div>
+        </a>
         <nav>
             <ul id="menuList">
               {% if user.is_authenticated %}

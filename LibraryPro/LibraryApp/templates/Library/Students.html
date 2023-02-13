@@ -1,25 +1,25 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<br>
-<br>
-<a href="{% url 'LibraryApp:AddStudents' %}">Add A Stduent</a>
-<br>
-<br>
-<table border="1">
-    <th>Image</th>
-    <th>F. Name</th>
-    <th>L. Name</th>
-    <th>Tel No.</th>
-    {% for i in students %}
-    <tr>
-        <td>{{i.FName}}</td>
-        <td>{{i.LName}}</td>
-        <td>{{i.TelNo}}</td>
-        <td>{{i.id}}</td>
-        <td>{{i.user.id}}</td>
-        <td><a href="{% url 'LibraryApp:delStudents' i.id %}">X</a></td>
-    </tr>
-    {% endfor %}
-</table>
+<div class="add-btn">
+    <a href="{% url 'LibraryApp:AddStudents' %}"><i class="fa fa-plus-square-o" aria-hidden="true"></i>  Add A Stduent</a>
+</div>
+<div class="mytable">
+    <table class="styled-table">
+        <th>Image</th>
+        <th>F. Name</th>
+        <th>L. Name</th>
+        <th>Tel No.</th>
+        <th>Remove</th>
+        {% for i in students %}
+        <tr>
+            <td>{{i.image}}</td>
+            <td>{{i.FName}}</td>
+            <td>{{i.LName}}</td>
+            <td>{{i.TelNo}}</td>
+            <td><a href="{% url 'LibraryApp:delStudents' i.id %}"><i class="fa fa-minus-square" aria-hidden="true"></i></a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
 {% endblock %}

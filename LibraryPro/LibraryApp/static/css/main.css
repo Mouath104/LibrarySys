@@ -1,13 +1,33 @@
-/*Navbar*/
+/*Main*/
 *{
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Ubuntu', sans-serif;
 }
+:root{
+  --c1:#ff9e5e;
+  --c2:#419296;
+  --c3:#ff7893;
+  --footer:#f3f3f3;
+  --Nav:#ff9e5e;
+}
+/*Navbar*/
 
+.navbar div{
+  display: flex;
+  align-items: center;
+}
+.navbar .site-title{
+  text-decoration: none;
+  color: #000;
+  font-size: 2em;
+}
+.site-title span{
+  margin-left: 10px;
+}
 .container{
   width: 100%;
-  min-height: 66vh;
+  min-height: 78.5vh;;
   padding-left: 8%;
   padding-right: 8%;
   box-sizing: border-box;
@@ -46,20 +66,29 @@
   text-decoration: none;
   color: #000;
   font-size: 14px;
+  font-size: 1.1em;
 }
 
 .navbar nav ul li a:hover{
   color: #ff5ea2;
 }
 
-@media only screen and (max-width:700px){
+@media only screen and (max-width:900px){
+  .navbar .site-title{
+    font-size: 1.7em;
+  }
+  .navbar nav ul li a{
+    font-size: 14px;
+    color: white;
+  }
   nav ul{
       width: 100%;
-      background: linear-gradient(to right,#fb5283,#ff3527);
+      background-color: var(--c2);
       position: absolute;
-      top: 75px;
+      top: 110px;
       right:0;
       z-index: 2;
+      /* max-height: 140px; */
   }
   nav ul li{
       display: block;
@@ -79,7 +108,7 @@
       overflow: hidden;
       transition: 0.5s;
   }
-  .fa {
+  .navbar .fa {
     font-size: 2em;
   }
 
@@ -91,7 +120,7 @@
   flex-direction: column;
   background-color: #fafafa;
   padding: 3rem 1.5rem 3rem 1.5rem;
-  margin-top: 20px;
+  /* margin-top: 20px; */
   /* width: 100%; */
   align-items: center;
 }
@@ -100,9 +129,19 @@
   text-align: center;
   padding: 5px 0;
 }
+.navbar .fa{
+  color: var(--c3);
+}
+.navbar .fa:hover{
+  color: var(--c2);
+}
+.footer .fa:hover{
+  color: var(--c3);
+}
 .footer .fa {
   font-size: 1.5em;
   padding: 0 10px 0 10px;
+  color: var(--c2);
 }
 
 /* editPassForm */
@@ -112,7 +151,7 @@
     align-items: center;
     justify-content: center;
     background-color: #f9f9f9;
-    font-family: 'Open Sans', sans-serif;
+
   }
   .editPassForm .cardStyle {
     width: 500px;
@@ -199,4 +238,112 @@ button[disabled] {
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+
+/*Table */
+
+/*Student Table*/
+
+/*Add Button*/
+.add-btn {
+  margin-top: 10px;
+  text-align: center;
+}
+.add-btn a{
+  text-decoration: none;
+    user-select: none;
+    color: white;
+    background-color: var(--c2);
+    padding: 5px;
+    border-radius: 3px;
+}
+@media only screen and (max-width:900px){
+
+  .mytable{
+      /* width: 90%; */
+      overflow-x: auto;
+  }
+  
+}
+.mytable .fa{
+  color: red;
+}
+
+.mytable{
+  /* width: 70%; */
+  overflow-x: auto;
+  /* margin-bottom: 3.7%; */
+  /* border: 3px solid #00c37a; */
+  padding: 5px;
+  margin-top: .2%;
+}
+
+.styled-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  text-align:center;
+  width: 100%;
+  height: 35px;
+  user-select: none;
+  overflow-x: scroll;
+}
+.styled-table thead tr {
+  background-color: #009879;
+  color: #ffffff;
+  text-align: center;
+}
+
+.styled-table th{
+  background-color: var(--c2);
+  color: white;
+}
+
+.styled-table th,
+.styled-table td {
+  padding: 12px 15px;
+
+}
+.styled-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+.styled-table tbody tr:nth-of-type(odd) {
+  background-color: #e6e9ed;
+}
+
+.styled-table tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+.styled-table tbody tr.active-row {
+  font-weight: bold;
+  color: #009879;
+}
+
+#del{
+  background-color: red;
+  padding: 10px;
+  border-radius: 5px;
+  user-select: none;
+}
+
+.mytable::-webkit-scrollbar {
+  width: 10px;
+}
+.mytable::-webkit-scrollbar-track {
+  background-color: var(--c2);
+}
+.mytable::-webkit-scrollbar-thumb {
+  box-shadow: inset 0 0 6px rgb(255 255 255);
+}
+
+td span {
+  color: var(--book3);
+  font-weight: 900;
 }
