@@ -2,19 +2,29 @@
 
 {% block content %}
 
-<a href="{% url 'LibraryApp:AddBooks' %}">Add Books</a>
 
-<table border="1">
-    <th>Name</th>
-    <th>Price</th>
-    <th>Desc</th>
-    {% for i in books %}
-    <tr>
-        <td>{{i.Name}}</td>
-        <td>{{i.Price}}</td>
-        <td>{{i.Desc}}</td>
-        <td><a href="{% url 'LibraryApp:delBook' i.id %}">X</a></td>
-    </tr>
-    {% endfor %}
-</table>
+
+<div class="mytable bok">
+    <div class="add-btn">
+        <a href="{% url 'LibraryApp:AddBooks' %}"><i class="fa fa-plus-square-o" aria-hidden="true"></i>  Add Books</a>
+    </div>
+    <table class="styled-table">
+        <th>Name</th>
+        <th>Price</th>
+        <th>Desc</th>
+        <th>Category</th>
+        <th>Auther</th>
+        <th>Remove</th>
+        {% for i in books %}
+        <tr>
+            <td>{{i.Name}}</td>
+            <td>{{i.Price}}</td>
+            <td>{{i.Desc}}</td>
+            <td>{{i.cat.Name}}</td>
+            <td>{{i.auther.Name}}</td>
+            <td><a href="{% url 'LibraryApp:delBook' i.id %}"><i class="fa fa-minus-square" aria-hidden="true"></i></a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
 {% endblock %}

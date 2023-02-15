@@ -1,8 +1,84 @@
 {% extends 'base.html' %}
 {% block content %}
-<div>
-    {% for i in IssuedBooks %}
-        <div>{{i.student.FName}} {{i.student.LName}} Borrowed [{{i.book.Name}}]</div>
-    {% endfor %}
-</div>
+
+
+
+    <div>
+        {% for i,j in IssuedBooks %}
+        {% if j %}
+        <div>{{i.student.FName}} {{i.student.LName}} Borrowed [{{i.book.Name}} Expired]</div>
+        {% else %}
+        <div>{{i.student.FName}} {{i.student.LName}} Borrowed [{{i.book.Name}} Expired]</div>
+        {% endif %}
+        {% endfor %}
+    </div>
+
+
+{% comment %}
+{% for i in IssuedBooks %}
+{% load tz %}
+{% timezone "UTC" %}
+{% if i.expiry_date|date > now|date %}
+    <div>{{i.student.FName}} {{i.student.LName}} Borrowed [{{i.book.Name}} {{i.expiry_date|timeuntil }} Expired]</div>
+{% else %}
+    <div>{{i.student.FName}} {{i.student.LName}} Borrowed [{{i.book.Name}}  {{i.expiry_date|timeuntil}} Valid]</div>
+{% endif %}
+{% endtimezone %}
+{% endfor %}
+
+{% load tz %}
+{% for i in IssuedBooks %}
+{% timezone "UTC" %}
+{% if i.expiry_date|date < now|date %}
+    <p>This item has expired.</p>
+{% else %}
+    <p>This item is still valid.</p>
+{% endif %}
+{% endtimezone %}
+{% endfor %}
+ ///////////
+ {% for i in IssuedBooks %}
+        
+ {% if i.expiry_date|date:'D d M Y' < now|date:'D d M Y' %}
+     <div>{{i.student.FName}} {{i.student.LName}} Borrowed [{{i.book.Name}} Expired]</div>
+ {% else %}
+     <div>{{i.student.FName}} {{i.student.LName}} Borrowed [{{i.book.Name}}  {{i.expiry_date}}  Valid]</div>
+ {% endif %}
+ 
+ {% endfor %}
+
+
+ {% for i in IssuedBooks %}
+ {% for j in expList %}
+ {% if j %}
+     <div>{{i.student.FName}} {{i.student.LName}} Borrowed [{{i.book.Name}} Expired]</div>
+ {% else %}
+     <div>{{i.student.FName}} {{i.student.LName}} Borrowed [{{i.book.Name}}  {{i.expiry_date}}  Valid]</div>
+ {% endif %}
+ {% endfor %}
+{% endfor %}
+
+{% load tz %}
+{% for i in IssuedBooks %}
+ {% timezone "UTC" %}
+ {% if i.expiry_date|date:'D d M Y' < now|date:'D d M Y' %}
+     <p>This item has expired.</p>
+ {% else %}
+     <p>This item is still valid.</p>
+ {% endif %}
+ {% endtimezone %}
+{% endfor %}
+
+{% for i in IssuedBooks %}
+        
+{% if i.expiry_date|date < noww|date %}
+    <div>{{i.student.FName}} {{i.student.LName}} Borrowed [{{i.book.Name}} Expired]</div>
+{% else %}
+    <div>{{i.student.FName}} {{i.student.LName}} Borrowed [{{i.book.Name}}  {{i.expiry_date}}  Valid]</div>
+{% endif %}
+
+{% endfor %}
+{% endcomment %}
+
 {% endblock %}
+

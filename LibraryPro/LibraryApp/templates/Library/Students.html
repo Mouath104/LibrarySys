@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="add-btn">
-    <a href="{% url 'LibraryApp:AddStudents' %}"><i class="fa fa-plus-square-o" aria-hidden="true"></i>  Add A Stduent</a>
-</div>
-<div class="mytable">
-    <table class="styled-table">
+<div class="mytable std">
+    <div class="add-btn">
+        <a href="{% url 'LibraryApp:AddStudents' %}"><i class="fa fa-plus-square-o" aria-hidden="true"></i>  Add A Stduent</a>
+    </div>
+    <table class="styled-table std">
         <th>Image</th>
         <th>F. Name</th>
         <th>L. Name</th>

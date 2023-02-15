@@ -173,16 +173,28 @@ def IssueABook(req):
     else:
         return HttpResponse('impossible, not Autherized!')  # to be replaced by Messsege later 
 
+# the templates filter is not workign with me somehow, i'm done!
+# to check the Expiration
+from datetime import datetime
+
+def is_expired(item):
+    now = datetime.now().date()
+    return item < now
+
 def Issued_Books(req):
     if(req.user.is_authenticated):
         if req.user.is_superuser:
+            expList=[]
             IssuedBooks=models.Issued_Book.objects.all() #all the issued Books
+            for i in IssuedBooks:
+                expList.append(is_expired(i.expiry_date))
         else:
             IssuedBooks=models.Issued_Book.objects.filter(
                 student_id=req.user.student.id
             )
         con={
-            'IssuedBooks':IssuedBooks
+            'IssuedBooks':IssuedBooks,
+            'expList':expList,
         }
         return render(req,'Library/Issued_Books.html',con)
     else:

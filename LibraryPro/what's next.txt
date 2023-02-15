@@ -4,6 +4,7 @@ $$$$ still:
 # Admin can Add a photo for the Books
 # Customize the Frontend ... 
 
+
 $$$$ Done:
 
 # don't forget to make the autherisatioons on both templates, views, %% Done
@@ -12,6 +13,7 @@ $$$$ Done:
 # admin can add students 
 
 $$$$ New: 
+    # stuck with the Date issue!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     # prevent the already Issued Books to Appear when Issuing a Book, as it can't be issued while it is.
     # Make messeges Appear when faliure/sucess Login,Adding, Deleting and Updating
     # confirm that the username entered when registering Student is unique
