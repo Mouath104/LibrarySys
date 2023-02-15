@@ -5,6 +5,7 @@
   font-family: 'Ubuntu', sans-serif;
 }
 :root{
+  --c0:#C92C6D;
   --c1:#ff9e5e;
   --c2:#419296;
   --c3:#ff7893;
@@ -347,4 +348,24 @@ button[disabled] {
 .bok .styled-table th,.bok .add-btn a{
   background-color: var(--c1);
   color: white;
+}
+
+.isbok .styled-table th,.isbok .add-btn a{
+  background-color: var(--c0);
+  color: white;
+}
+
+/* Issue Book Table*/
+
+td .Valid{
+    background-color: green;
+    color: white;
+    padding: 5px;
+    border-radius: 3px;
+}
+td .Expired{
+    background-color: red;
+    color: white;
+    padding: 5px;
+    border-radius: 3px;
 }

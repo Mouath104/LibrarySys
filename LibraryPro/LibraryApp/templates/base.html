@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Library</title>
+    <link rel="icon" type="image/x-icon" href={% static 'images/site-icon.png' %}>
     <link rel="stylesheet" href="{% static 'font-awesome-4.7.0/css/font-awesome.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <link rel="stylesheet" href="{% static 'js/main.js' %}">
@@ -26,10 +27,11 @@
             <ul id="menuList">
               {% if user.is_authenticated %}
                 {% if user.is_superuser %} 
+                    <li><a href="{% url 'LibraryApp:IssueABook' %}"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Issue</a></li>
                     <li><a href="http://127.0.0.1:8000/admin/"><i class="fa fa-user" aria-hidden="true"></i> Admin</a></li>
                     <li><a href="{% url 'LibraryApp:Books' %}"><i class="fa fa-book" aria-hidden="true"></i> Books</a></li>
                     <li><a href="{% url 'LibraryApp:Students' %}"><i class="fa fa-graduation-cap" aria-hidden="true"></i> Students</a></li>
-                    <li><a href="{% url 'LibraryApp:IssueABook' %}"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Issue</a></li>
+                    
                   
                 {% endif %}
                   <li><a href="{% url 'LibraryApp:Issued_Books' %}"><i class="fa fa-address-book-o" aria-hidden="true"></i> Issued Books </a></li>

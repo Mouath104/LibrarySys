@@ -203,4 +203,12 @@ def Issued_Books(req):
     else:
         return redirect('LibraryApp:login')
         
+def retract(req,pk):
+    if(req.user.is_superuser): 
+        retractIssue = models.Issued_Book.objects.get(id=pk)
+        retractIssue.delete()
+        return redirect('LibraryApp:Issued_Books')
+    else:
+        return HttpResponse('impossible, not Autherized!')  # to be replaced by Messsege later 
+
 

@@ -2,16 +2,48 @@
 {% block content %}
 {% load custom_filters %}
 
-
-
-    <div>
-        {% for i in IssuedBooks %}
-        <div>{{i.student.FName}} {{i.student.LName}} Borrowed [{{i.book.Name}} {{i.expiry_date|time_since_expired }}]</div>
-        {% endfor %}
+<div class="mytable isbok">
+    <div class="add-btn">
+        <a href="{% url 'LibraryApp:IssueABook' %}"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Issue A Book</a>
     </div>
+    <table class="styled-table">
+        <th>Book</th>
+        <th>Student</th>
+        <th>Issue Date</th>
+        <th>Expiration Date</th>
+        <th>Status</th>
+        <th>Exceeded/Remaining-Days</th>
+        <th>Retract</th>
+        {% for i in IssuedBooks %}
+        <tr>
+            <td>{{i.book.Name}}</td>
+            <td>{{i.student.FName}} {{i.student.LName}}</td>
+            <td>{{i.issued_date}}</td>
+            <td>{{i.expiry_date}}</td>
+            {% if i.expiry_date|is_expired %}
+            <td><span class="Expired">Expired</span></td>
+            {% else %}
+            <td><span class="Valid">Valid</span></td>
+            {% endif %}
+            <td>{{i.expiry_date|time_since_expired_bvalid}}</td>
+            <td><a href="{% url 'LibraryApp:retract' i.id %}"><i class="fa fa-minus-square" aria-hidden="true"></i></a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
 
 
 {% comment %}
+<div>
+    {% for i in IssuedBooks %}
+    {% if i.expiry_date|is_expired %}
+    <div>{{i.student.FName}} {{i.student.LName}} Borrowed [{{i.book.Name}} Expired {{i.expiry_date|time_since_expired_bvalid}} ]</div>
+    {% else %}
+    <div>{{i.student.FName}} {{i.student.LName}} Borrowed [{{i.book.Name}} Valid {{i.expiry_date|time_since_expired_bvalid}} ]</div>
+    {% endif %}
+    {% endfor %}
+</div>
 
 {% for i,j in zippedList %}
 {% if j %}

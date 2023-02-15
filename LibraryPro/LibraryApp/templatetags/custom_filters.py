@@ -9,7 +9,18 @@ def zip_lists(a, b):
 
 
 @register.filter
-def time_since_expired(expiration_date):
+def is_expired(expiration_date):
+    now = datetime.now(timezone.utc)
+    if isinstance(expiration_date, datetime):
+        expiration_date = expiration_date.date()
+    expiration_date = datetime.combine(expiration_date, datetime.min.time(), tzinfo=timezone.utc)
+    if expiration_date < now:
+        return True
+    else:
+        return False
+        
+@register.filter        
+def time_since_expired_bvalid(expiration_date):
     now = datetime.now(timezone.utc)
     if isinstance(expiration_date, datetime):
         expiration_date = expiration_date.date()
@@ -30,7 +41,9 @@ def time_since_expired(expiration_date):
         else:
             return f"{days} day{'s' if days > 1 else ''} ago"
     else:
-        return "Not yet expired"
+        time_difference=expiration_date - now
+        days = time_difference.days
+        return f"{days} days Remaining"
 # def time_since_expired(expiration_date):
 #     now = datetime.now(timezone.utc)
 #     if expiration_date < now:
