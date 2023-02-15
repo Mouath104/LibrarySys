@@ -1,20 +1,27 @@
 {% extends 'base.html' %}
 {% block content %}
+{% load custom_filters %}
 
 
 
     <div>
-        {% for i,j in IssuedBooks %}
-        {% if j %}
-        <div>{{i.student.FName}} {{i.student.LName}} Borrowed [{{i.book.Name}} Expired]</div>
-        {% else %}
-        <div>{{i.student.FName}} {{i.student.LName}} Borrowed [{{i.book.Name}} Expired]</div>
-        {% endif %}
+        {% for i in IssuedBooks %}
+        <div>{{i.student.FName}} {{i.student.LName}} Borrowed [{{i.book.Name}} {{i.expiry_date|time_since_expired }}]</div>
         {% endfor %}
     </div>
 
 
 {% comment %}
+
+{% for i,j in zippedList %}
+{% if j %}
+<div>{{i.student.FName}} {{i.student.LName}} Borrowed [{{i.book.Name}} {{i.expiry_date|timeuntil }} Expired]</div>
+{% else %}
+<div>{{i.student.FName}} {{i.student.LName}} Borrowed [{{i.book.Name}} {{i.expiry_date|timeuntil }} Valid]</div>
+{% endif %}
+{% endfor %}
+
+
 {% for i in IssuedBooks %}
 {% load tz %}
 {% timezone "UTC" %}

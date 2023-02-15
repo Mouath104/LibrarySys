@@ -192,9 +192,12 @@ def Issued_Books(req):
             IssuedBooks=models.Issued_Book.objects.filter(
                 student_id=req.user.student.id
             )
+        # i tried to make custome filter in templates with no result
+        zippedList=zip(IssuedBooks,expList)
         con={
             'IssuedBooks':IssuedBooks,
             'expList':expList,
+            'zippedList':zippedList
         }
         return render(req,'Library/Issued_Books.html',con)
     else:
