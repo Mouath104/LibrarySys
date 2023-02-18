@@ -15,35 +15,35 @@
 <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
 </head>
 <body>
+  <div class="navbar">
+    <a href="{% url 'LibraryApp:home' %}" class="site-title">
+      <div>
+        <img src={% static 'images/site-icon.png' %} alt="" class="logo">
+        <span>Library</span>
+      </div>
+    </a>
+    <nav>
+        <ul id="menuList">
+          {% if user.is_authenticated %}
+            {% if user.is_superuser %} 
+                <li><a href="{% url 'LibraryApp:IssueABook' %}"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Issue</a></li>
+                <li><a href="http://127.0.0.1:8000/admin/"><i class="fa fa-user" aria-hidden="true"></i> Admin</a></li>
+                <li><a href="{% url 'LibraryApp:Books' %}"><i class="fa fa-book" aria-hidden="true"></i> Books</a></li>
+                <li><a href="{% url 'LibraryApp:Students' %}"><i class="fa fa-graduation-cap" aria-hidden="true"></i> Students</a></li>
+                
+              
+            {% endif %}
+              <li><a href="{% url 'LibraryApp:Issued_Books' %}"><i class="fa fa-address-book-o" aria-hidden="true"></i> Issued Books </a></li>
+              <li><a href="{% url 'LibraryApp:Profile' %}"><i class="fa fa-user" aria-hidden="true"></i> Profile</a></li>
+              <li><a href="{% url 'LibraryApp:logout' %}"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
+          {% else %}
+            <li><a class="navbar-link" href="{% url 'LibraryApp:login' %}">Login <i class="fa fa-sign-in" aria-hidden="true"></i></a></li>
+          {% endif %}
+        </ul>
+    </nav>
+    <img src={% static 'images/menu.png' %} alt="" class="menu-icon" onclick="togglemenu()">
+</div>
   <div class="container">
-    <div class="navbar">
-        <a href="{% url 'LibraryApp:home' %}" class="site-title">
-          <div>
-            <img src={% static 'images/site-icon.png' %} alt="" class="logo">
-            <span>Library</span>
-          </div>
-        </a>
-        <nav>
-            <ul id="menuList">
-              {% if user.is_authenticated %}
-                {% if user.is_superuser %} 
-                    <li><a href="{% url 'LibraryApp:IssueABook' %}"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Issue</a></li>
-                    <li><a href="http://127.0.0.1:8000/admin/"><i class="fa fa-user" aria-hidden="true"></i> Admin</a></li>
-                    <li><a href="{% url 'LibraryApp:Books' %}"><i class="fa fa-book" aria-hidden="true"></i> Books</a></li>
-                    <li><a href="{% url 'LibraryApp:Students' %}"><i class="fa fa-graduation-cap" aria-hidden="true"></i> Students</a></li>
-                    
-                  
-                {% endif %}
-                  <li><a href="{% url 'LibraryApp:Issued_Books' %}"><i class="fa fa-address-book-o" aria-hidden="true"></i> Issued Books </a></li>
-                  <li><a href="{% url 'LibraryApp:Profile' %}"><i class="fa fa-user" aria-hidden="true"></i> Profile</a></li>
-                  <li><a href="{% url 'LibraryApp:logout' %}"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
-              {% else %}
-                <li><a class="navbar-link" href="{% url 'LibraryApp:login' %}">Login <i class="fa fa-sign-in" aria-hidden="true"></i></a></li>
-              {% endif %}
-            </ul>
-        </nav>
-        <img src={% static 'images/menu.png' %} alt="" class="menu-icon" onclick="togglemenu()">
-    </div>
 
     {% block content %}
     {% endblock %}

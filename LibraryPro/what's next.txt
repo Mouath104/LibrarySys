@@ -11,12 +11,18 @@ $$$$ Done:
 # Error in Line 61 in Views.py  %% finally, solve it. the thing is that u can't edit the student by adding a new user to it, u need put it in instance.
 # student can change the password
 # admin can add students 
+# stuck with the Date issue!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! %% Done
 
 $$$$ New: 
-    # stuck with the Date issue!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     # prevent the already Issued Books to Appear when Issuing a Book, as it can't be issued while it is.
     # Make messeges Appear when faliure/sucess Login,Adding, Deleting and Updating
     # confirm that the username entered when registering Student is unique
     # Make a Page for a Book
     # Make a Page for a Student
     # add a hyper link to each Book and Student in the Issued Date
+
+
+$$$$ Ideas:
+    # you may add the possiblity of Normal students to request A Book through the site, and let the Admin to either Accept it or Deny it. [Demand Page at Book Details Page] [Book Details Page] 
+    # you may then provide a search for Books, so student could see them. [Books Page]
+    # you may also provide a Books at the Home Page that most student Demand/Request (as a scrolling List right to the left). [Home Page]

@@ -1,11 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
+{% load static %}
+
 <div class="Profile-container"> 
-    <span><a href="/editProfile">Edit</a></span>
-    <span><a href="/chnagePass">Change Password</a></span>
-    <p>First Name: {{student.FName}}</p>
-    <p>Last Name: {{student.LName}}</p>
-    <p>Tel No: {{student.TelNo}}</p>    
+    <img src="{% static 'images/' %}{{ student.image }}" alt="{{ student.name }}">
+    <h1>{{student.FName}} {{student.LName}}</h1>
+	<ul>
+        <li><span>Email:</span> {{student.FName}}@example.com</li>
+		<li><span>Tel No:</span> {{student.TelNo}}</li>
+	</ul>
+    <ul class="tail">
+        <li><span><a class="Edit" href="/editProfile">Edit</a></span></li>
+        <li><span><a class="change" href="/chnagePass">Change Pass</a></span></li>
+    </ul>
 </div>
 {% endblock %}
