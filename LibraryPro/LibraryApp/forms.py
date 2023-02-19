@@ -17,8 +17,14 @@ class AddBooksForm(forms.ModelForm):
         exclude = ("", )
 
 class Issued_BookForm(forms.ModelForm):
+    # we need to excelude the Already Issued Books, as it's one-to-one Rel, as it's impossible for two students to have the same physical Book at same time
+    def __init__(self, *args, **kwargs):
+        super(Issued_BookForm, self).__init__(*args, **kwargs)
+        issued_books_ids = Issued_Book.objects.values_list('book__id', flat=True)
+        self.fields['book'].queryset = Book.objects.exclude(id__in=issued_books_ids)
+
     class Meta:
-        model=Issued_Book
+        model = Issued_Book
         exclude = ("", )
 
 class editProfileForm(forms.ModelForm):

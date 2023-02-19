@@ -183,13 +183,13 @@ body .container::before {
 
 /* editPassForm */
 .editPassForm {
-    display: flex;
-    min-height: 100%;
-    align-items: center;
-    justify-content: center;
-    background-color: #fff;
-
-  }
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.86);
+    padding: 50px;
+}
   .editPassForm .cardStyle {
     width: 500px;
     border-color: white;
@@ -294,6 +294,14 @@ button[disabled] {
     padding: 5px;
     border-radius: 3px;
 }
+
+
+.isbok .styled-table .Name li{
+ list-style: none;
+}
+.isbok .styled-table .Name li a{
+  text-decoration: none;
+}
 @media only screen and (max-width:900px){
 
   .mytable{
@@ -392,6 +400,28 @@ button[disabled] {
 }
 
 /* Issue Book Table*/
+/* Issue Book Table*/
+.IssueABookForm label{
+  padding: 20px;
+}
+.IssueABookForm p{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.IssueABookForm p select,input{
+  max-width: 100px;
+  margin-left: 20px;
+  text-align: center;
+}
+.IssueABookForm{
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.86);
+  padding: 50px;
+}
 
 td .Valid{
     background-color: green;

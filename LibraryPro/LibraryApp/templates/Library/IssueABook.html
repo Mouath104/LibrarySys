@@ -1,11 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<form action="{% url 'LibraryApp:IssueABook' %}" method="post">
-    <div class="Father">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Add">
-    </div>
-</form>
+<div class="IssueABookForm">
+    <form action="{% url 'LibraryApp:IssueABook' %}" method="post">
+        <div class="Father">
+            <h2 class="formTitle">
+                Issue a Book
+              </h2>
+            {% csrf_token %}
+            {{ form.as_div }}
+            <input type="submit" value="Add">
+        </div>
+    </form>
+</div>
 {% endblock %}

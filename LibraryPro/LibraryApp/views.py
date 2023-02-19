@@ -43,17 +43,22 @@ def login(req):
         form = AuthenticationForm() # get method
         return render(request=req, template_name="Reg/Login.html", context={"login_form":form})
 
-def Profile(req):
-    if(req.user.is_authenticated): #in case if the user tried to put the URL manually :d
-        student=models.Student.objects.get(id=req.user.student.id)
-        con={
-            'student':student
+def Profile(req, pk=None):
+    if req.user.is_authenticated:
+        if pk is None:
+            # If no `pk` is provided, use the current user's student ID
+            student = req.user.student
+        else:
+            # Otherwise, use the provided `pk` to retrieve the corresponding student
+            student = models.Student.objects.get(id=pk)
+        
+        con = {
+            'student': student
         }
-        return render(req,'Reg/Profile.html',con)
+        return render(req, 'Reg/Profile.html', con)
     else:
-        msg='impossible, need to login!'
-        return render(req,'Reg/ERR.html',{'msg':msg})
-        # return HttpResponse('impossible, need to login!')  # to be replaced by Messsege later
+        msg = 'impossible, need to login!'
+        return render(req, 'Reg/ERR.html', {'msg': msg})
 
 def chnagePass(req):
     user=models.User.objects.get(id=req.user.id)

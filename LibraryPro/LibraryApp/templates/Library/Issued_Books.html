@@ -17,7 +17,7 @@
         {% for i in IssuedBooks %}
         <tr>
             <td>{{i.book.Name}}</td>
-            <td>{{i.student.FName}} {{i.student.LName}}</td>
+            <td class="Name"><li><a href="{% url 'LibraryApp:Profile' i.student_id %}">{{i.student.FName}} {{i.student.LName}}</a></td>
             <td>{{i.issued_date}}</td>
             <td>{{i.expiry_date}}</td>
             {% if i.expiry_date|is_expired %}
