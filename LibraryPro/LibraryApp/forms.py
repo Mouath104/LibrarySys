@@ -7,6 +7,8 @@ from LibraryApp.models import Book,Issued_Book,User,Student
 #         fields=("username","password",)
 
 class AddStudentsForm(forms.ModelForm):
+    username = forms.CharField(max_length=10, required=True)
+    password = forms.CharField(widget=forms.PasswordInput, required=True)
     class Meta:
         model=Student
         exclude=("user",)

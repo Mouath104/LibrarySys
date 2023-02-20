@@ -4,16 +4,8 @@
 <form action="{% url 'LibraryApp:AddStudents' %}" method="post">
     <div class="AddStudents">
         {% csrf_token %}
-        <p>
-          <label for="id_userName">Username:</label>
-          <input type="text" name="username" maxlength="10" required="" id="id_userName">
-        </p>
-        <p>
-          <label for="id_Password">Password:</label>
-          <input type="password" name="password" required="" id="id_Password">
-        </p>
         {{form.as_p}}
-        <input type="submit" value="Login">
+        <input type="submit" value="Add">
     </div>
 </form>
 

@@ -100,16 +100,20 @@ def editProfile(req):
 #### Library
 
 def AddStudents(req):
-    if req.user.is_superuser:   
+    if req.user.is_superuser: 
+        usernames = models.User.objects.values_list('username', flat=True) # to check uniquness  
         if req.method=='POST':
             form = AddStudentsForm(req.POST,req.FILES)
             if form.is_valid():
-                user=models.User.objects.create(username=req.POST['username'],password=req.POST['password'])
-                stdForm=form.save(commit=False)
-                stdForm.image=req.FILES
-                stdForm.user=user
-                stdForm.save()
-                return redirect('LibraryApp:Students')
+                if (not req.POST['username'] in usernames):
+                    user=models.User.objects.create(username=req.POST['username'],password=req.POST['password'])
+                    stdForm=form.save(commit=False)
+                    stdForm.image=req.FILES
+                    stdForm.user=user
+                    stdForm.save()
+                    return redirect('LibraryApp:Students')
+                else:
+                    return HttpResponse("This username is Already") # to be replaced with a message later
         else:
             form = AddStudentsForm()
             return render(req,'Library/addStudent.html',{'form':form})

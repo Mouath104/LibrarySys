@@ -12,7 +12,7 @@ class Student(models.Model):
         on_delete=models.CASCADE
     )
     # file = models.FileField(upload_to='documents/',default='default.jpg')
-    image = models.ImageField(upload_to='images/',  blank=True)
+    image = models.ImageField(upload_to='static/images/Students/',  blank=True)
     # std_img=models.ImageField(upload_to='images/', default='default.jpg')
 
     def __str__(self):
