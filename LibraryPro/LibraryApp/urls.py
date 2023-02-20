@@ -20,5 +20,6 @@ urlpatterns = [
     path('delStudents/<int:pk>/', views.delStudents, name='delStudents'),
     path('IssueABook/', views.IssueABook, name='IssueABook'),
     path('Issued_Books/', views.Issued_Books, name='Issued_Books'), 
-    path('retract/<int:pk>/', views.retract, name='retract')
+    path('retract/<int:pk>/', views.retract, name='retract'),
+    path('bookDetails/<int:pk>', views.bookDetails, name="bookDetails"),
 ]

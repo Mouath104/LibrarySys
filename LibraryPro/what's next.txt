@@ -16,7 +16,7 @@ $$$$ Done:
 $$$$ New: 
     # prevent the already Issued Books to Appear when Issuing a Book, as it can't be issued while it is. %%Solved
     # Make messeges Appear when faliure/sucess Login,Adding, Deleting and Updating
-    # confirm that the username entered when registering Student is unique
+    # confirm that the username entered when registering Student is unique %% no need as there is a fisrt and last name
     # Make a Page for a Book
     # Make a Page for a Student %% Done
     # add a hyper link to each Book and Student in the Issued Date

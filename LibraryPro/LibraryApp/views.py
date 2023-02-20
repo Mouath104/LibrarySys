@@ -188,8 +188,8 @@ def is_expired(item):
 
 def Issued_Books(req):
     if(req.user.is_authenticated):
+        expList=[]
         if req.user.is_superuser:
-            expList=[]
             IssuedBooks=models.Issued_Book.objects.all() #all the issued Books
             for i in IssuedBooks:
                 expList.append(is_expired(i.expiry_date))
@@ -197,6 +197,8 @@ def Issued_Books(req):
             IssuedBooks=models.Issued_Book.objects.filter(
                 student_id=req.user.student.id
             )
+            for i in IssuedBooks:
+                expList.append(is_expired(i.expiry_date))
         # i tried to make custome filter in templates with no result
         zippedList=zip(IssuedBooks,expList)
         con={
@@ -217,3 +219,12 @@ def retract(req,pk):
         return HttpResponse('impossible, not Autherized!')  # to be replaced by Messsege later 
 
 
+def bookDetails(req,pk):
+    if(req.user.is_authenticated):
+        book=models.Book.objects.get(id=pk)
+        con={
+            'book':book
+        }
+        return render(req,'Library/bookDetails.html',con)
+    else:
+        return redirect('LibraryApp:login')
