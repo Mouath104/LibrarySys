@@ -12,14 +12,15 @@ $$$$ Done:
 # student can change the password
 # admin can add students 
 # stuck with the Date issue!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! %% Done
+# confirm that the username entered when registering Student is unique %% Done
+# Make a Page for a Book %% Done
+# Make a Page for a Student %% Done
+# add a hyper link to each Book and Student in the Issued Date %%Done
+# prevent the already Issued Books to Appear when Issuing a Book, as it can't be issued while it is. %%Solved
 
 $$$$ New: 
-    # prevent the already Issued Books to Appear when Issuing a Book, as it can't be issued while it is. %%Solved
     # Make messeges Appear when faliure/sucess Login,Adding, Deleting and Updating
-    # confirm that the username entered when registering Student is unique %% Done
-    # Make a Page for a Book %% Done but still needs to be customised
-    # Make a Page for a Student %% Done
-    # add a hyper link to each Book and Student in the Issued Date %%Done
+    # Make a Print Appility to the Issued Books Table
 
 
 $$$$ Ideas:
