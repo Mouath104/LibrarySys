@@ -27,7 +27,7 @@ class Issued_BookForm(forms.ModelForm):
 
     class Meta:
         model = Issued_Book
-        exclude = ("", )
+        fields=['book','student','expiry_date']
 
 class editProfileForm(forms.ModelForm):
     class Meta:
