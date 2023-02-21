@@ -199,6 +199,8 @@ body .container::before {
 @media only screen and (max-width:900px){
   .home-container{
     top: 50%;
+    width: 80%;
+    overflow: hidden;
   }
 }
 
