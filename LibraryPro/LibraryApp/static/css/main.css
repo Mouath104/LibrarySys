@@ -64,7 +64,7 @@ body .container::before {
 }
 
 .menu-icon{
-  width: 20px;
+  width: 2.5em;
   cursor: pointer;
   display: none;
 }
