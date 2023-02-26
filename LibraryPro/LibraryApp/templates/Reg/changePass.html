@@ -4,9 +4,7 @@
     <div class="editPassForm">
         <div class="cardStyle">
           <form action="{% url 'LibraryApp:chnagePass' %}" method="post" name="signupForm" id="signupForm">
-            {% csrf_token %}
-            <img src="" id="signupLogo"/>
-            
+            {% csrf_token %}           
             <h2 class="formTitle">
               Change your Password
             </h2>

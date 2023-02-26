@@ -427,29 +427,28 @@ button[disabled] {
   color: white;
 }
 
-/* add Book Table*/
-.addBooksForm .Father div,h2{
+/* add Book + Student + EditProfile Tables*/
+.addBooksForm .Father div,.addBooksForm .Father h2,.addStudentForm .Father div,.editProfileForm .Father div{
   padding-bottom: 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.addBooksForm label{
+.addBooksForm label,.addStudentForm label,.editProfileForm label{
   padding: 20px;
   font-size: 1.2em;
 }
-.addBooksForm p{
-  display: flex;
+.addBooksForm p,.addStudentForm p,.editProfileForm p{
   align-items: center;
   justify-content: space-between;
 }
-.addBooksForm p select,input{
+.addBooksForm p select,input,.addStudentForm p select{
   /* max-width: 100px;
   margin-left: 20px; */
   text-align: center;
 }
-.addBooksForm{
+.addBooksForm,.addStudentForm,.editProfileForm{
   top: 50%;
   left: 50%;
   position: absolute;
@@ -459,11 +458,11 @@ button[disabled] {
 }
 
 @media only screen and (max-width:900px){
-  .addBooksForm {
+  .addBooksForm,.addStudentForm,.editProfileForm {
     width: 60%;
     font-size: .8em;
   }
-  .addBooksForm select {
+  .addBooksForm select,.addStudentForm select {
     width: 126px !important;
   }
 }
@@ -589,7 +588,7 @@ td .Expired{
 }
 
 /* select */
-.IssueABookForm input,.addBooksForm input{
+.IssueABookForm input,.addBooksForm input,.addStudentForm input,.editProfileForm input{
   width: 170px;
   max-width: 100%;
   overflow-y: auto;
@@ -605,7 +604,28 @@ td .Expired{
   box-shadow: -3px 3px 5px 0px rgb(0 0 0 / 10%);
   text-align: center;
 }
-.IssueABookForm .Father input[type=submit],.addBooksForm .Father input[type=submit]{
+/* type : file*/
+.addStudentForm div input[type=file],.editProfileForm div input[type=file]{
+	background: var(--c2);
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	color: #fff;
+	font-size: 1em;
+	font-weight: bold;
+	padding: 0.875em;/*14px/16px*/
+	text-align: center;
+   cursor: pointer;
+}
+input[type=file]:hover,input[type=file]:active,input[type=file]:focus {
+	background: #00a2a4;
+  cursor: pointer;
+}
+.editProfileForm div input#image-clear_id {
+  display: none;
+}
+
+.IssueABookForm .Father input[type=submit],.addBooksForm .Father input[type=submit],.addStudentForm .Father input[type=submit],.editProfileForm .Father input[type=submit]{
   cursor: pointer;
   padding: 15px 25px;
   -webkit-appearance: none;
@@ -618,7 +638,7 @@ td .Expired{
   box-shadow: -3px 3px 5px 0px rgb(0 0 0 / 10%);
   background-color: var(--c0);
 }
-.IssueABookForm select,.addBooksForm select{
+.IssueABookForm select,.addBooksForm select,.addStudentForm select{
   width: 170px;
   max-width: 100%;
   overflow-y: auto;
@@ -634,7 +654,7 @@ td .Expired{
   box-shadow: -3px 3px 5px 0px rgba(0,0,0,0.10);
   text-align: center;
 }
-.IssueABookForm select option, .addBooksForm select option{
+.IssueABookForm select option, .addBooksForm select option,.addStudentForm select option{
   padding: 10px 20px;
   margin-bottom: 8px;
   border-radius: 12px;
@@ -643,25 +663,25 @@ td .Expired{
   cursor: pointer;
   text-align: center;
 }
-.IssueABookForm  select option:hover,.addBooksForm  select option:hover{
+.IssueABookForm  select option:hover,.addBooksForm  select option:hover,.addStudentForm  select option:hover{
   background-color: rgb(223, 223, 223);
 }
-.IssueABookForm select option:checked,.addBooksForm select option:checked{
+.IssueABookForm select option:checked,.addBooksForm select option:checked,.addStudentForm select option:checked{
   box-shadow: 0 0 10px 100px #595959 inset;
 }
-.IssueABookForm select::-webkit-scrollbar-track,.addBooksForm select::-webkit-scrollbar-track
+.IssueABookForm select::-webkit-scrollbar-track,.addBooksForm select::-webkit-scrollbar-track,.addStudentForm select::-webkit-scrollbar-track
 {
 	background-color: #F5F5F5;
 	border-radius: 12px;
 }
 
-.IssueABookForm select::-webkit-scrollbar,.addBooksForm select::-webkit-scrollbar
+.IssueABookForm select::-webkit-scrollbar,.addBooksForm select::-webkit-scrollbar,.addStudentForm select::-webkit-scrollbar
 {
 	width: 8px;
 	background-color: #F5F5F5;
 }
 
-.IssueABookForm select::-webkit-scrollbar-thumb,.addBooksForm select::-webkit-scrollbar-thumb
+.IssueABookForm select::-webkit-scrollbar-thumb,.addBooksForm select::-webkit-scrollbar-thumb,.addStudentForm select::-webkit-scrollbar-thumb
 {
 	background-color: rgb(225, 225, 225);
 	border-radius: 12px;
@@ -674,9 +694,10 @@ td .Expired{
 											  transparent 75%,
 											  transparent)
 }
-.IssueABookForm select.fadeIn,.addBooksForm select.fadeIn {
+.IssueABookForm select.fadeIn,.addBooksForm select.fadeIn,.addStudentForm select.fadeIn {
   animation: fadeInDown 0.2s;
 }
-.IssueABookForm select.fadeOut,.addBooksForm select.fadeOut{
+.IssueABookForm select.fadeOut,.addBooksForm select.fadeOut,.addStudentForm select.fadeOut{
   animation: fadeInUp 0.2s;
 }
+

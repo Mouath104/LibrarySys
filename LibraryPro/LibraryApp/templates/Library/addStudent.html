@@ -1,13 +1,19 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<form action="{% url 'LibraryApp:AddStudents' %}" method="post">
-    <div class="AddStudents">
+<div class="addStudentForm">
+  <form action="{% url 'LibraryApp:AddStudents' %}" method="post">
+    <div class="Father">
+      <h2 class="formTitle">
+          Add a Student
+        </h2>
         {% csrf_token %}
-        {{form.as_p}}
+        {{form.as_div}}
         <input type="submit" value="Add">
     </div>
 </form>
+</div>
+
 
 <!-- <h2 class="my-4">Movies</h2>
 <div class="row">

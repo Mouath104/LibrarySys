@@ -1,13 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-<form action="{% url 'LibraryApp:editProfile' %}" method="post">
-<div class="editProForm">
-    {% csrf_token %}
-    {{form.as_p}}
-    <button type="submit">Done</button>
+<div class="editProfileForm">
+    <form action="{% url 'LibraryApp:editProfile' %}" method="post">
+        <div class="Father">
+            <h2 class="formTitle">
+                Edit Profile
+              </h2>
+            {% csrf_token %}
+            {{form.as_div}}
+            <input type="submit" value="Done">
+        </div>
+    </form>
 </div>
-</form>
-
 {% endblock %}
