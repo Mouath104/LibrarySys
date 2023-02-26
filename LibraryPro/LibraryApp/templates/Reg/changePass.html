@@ -2,36 +2,34 @@
 
 {% block content %}
     <div class="editPassForm">
-        <div class="cardStyle">
+
           <form action="{% url 'LibraryApp:chnagePass' %}" method="post" name="signupForm" id="signupForm">
-            {% csrf_token %}           
+                 
+          <div class="Father">
             <h2 class="formTitle">
               Change your Password
             </h2>
-            
-          <div class="inputDiv">
+            {% csrf_token %}     
+          <div>
             <label class="inputLabel" for="curr-pass">Current Password</label>
             <input type="password" id="curr-pass" name="curr-pass" required>
           </div>
             
-          <div class="inputDiv">
+          <div>
             <label class="inputLabel" for="new-pass">New Password</label>
             <input type="password" id="new-pass" name="new-pass" required>
           </div>
 
-          <div class="inputDiv">
+          <div>
             <label class="inputLabel" for="confirm-new-pass">Confirm New Password</label>
             <input type="password" name="confirm-new-pass" id="confirm-new-pass" required>
           </div>
           
-          <div class="buttonWrapper">
-            <button type="submit" id="submitButton" onclick="validateSignupForm()" class="submitButton pure-button pure-button-primary">
-              <span>Continue</span>
-              <span id="loader"></span>
-            </button>
+          <div>
+            <input type="submit" value="Continue" id="submitButton" onclick="validateSignupForm()">
           </div>
-            
+        </div>    
         </form>
-        </div>
+
       </div>
 {% endblock %}

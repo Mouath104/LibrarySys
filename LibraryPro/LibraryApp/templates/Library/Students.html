@@ -19,6 +19,14 @@
             <td>{{i.TelNo}}</td>
             <td><a href="{% url 'LibraryApp:delStudents' i.id %}"><i class="fa fa-minus-square" aria-hidden="true"></i></a></td>
         </tr>
+        {% empty %}
+        <tr>
+            <td>-</td>
+            <td>-</td>
+            <td>No Students</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
         {% endfor %}
     </table>
 </div>
