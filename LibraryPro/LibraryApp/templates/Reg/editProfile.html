@@ -9,6 +9,10 @@
               </h2>
             {% csrf_token %}
             {{form.as_div}}
+            <div>
+                <label for="id_image">Image:</label>
+                <input type="file" name="image" accept="image/*" id="id_image">
+            </div>
             <input type="submit" value="Done">
         </div>
     </form>

@@ -1,13 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<form action="{% url 'LibraryApp:login' %}" method="post">
-    {% load crispy_forms_tags %}
-    <div class="Father">
-        {% csrf_token %}
-        {{login_form | crispy}}
-        <input type="submit" value="Login">
-    </div>
-</form>
-
+<div class="LoginForm">
+    <form action="{% url 'LibraryApp:login' %}" method="post">
+        <div class="Father">
+            <h2 class="formTitle">
+                Login
+            </h2>
+            {% csrf_token %}
+            {{login_form.as_div}}
+            <input type="submit" value="Login">
+        </div>
+    </form>
+</div>
 {% endblock %}

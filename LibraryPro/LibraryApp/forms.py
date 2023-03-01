@@ -32,7 +32,7 @@ class Issued_BookForm(forms.ModelForm):
 class editProfileForm(forms.ModelForm):
     class Meta:
         model=Student
-        exclude = ("user", )
+        exclude = ("user", 'image')
 
 # class chnagePassForm()
 # # class regStudentForm(forms.ModelForm):

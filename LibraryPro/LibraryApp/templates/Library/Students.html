@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+{% load static %}
 <div class="mytable std">
     <div class="add-btn">
         <a href="{% url 'LibraryApp:AddStudents' %}"><i class="fa fa-plus-square-o" aria-hidden="true"></i>  Add A Stduent</a>
@@ -13,7 +14,7 @@
         <th>Remove</th>
         {% for i in students %}
         <tr>
-            <td>{{i.image}}</td>
+            <td class="image"><a href="{% url 'LibraryApp:Profile' i.id %}"><img src="{% static i.image %}" alt=""></a></td>
             <td>{{i.FName}}</td>
             <td>{{i.LName}}</td>
             <td>{{i.TelNo}}</td>
