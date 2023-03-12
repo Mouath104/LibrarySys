@@ -15,6 +15,7 @@ urlpatterns = [
     path('AddStudents/', views.AddStudents, name='AddStudents'),
     path('AddBooks/', views.AddBooks,name='AddBooks'),
     path('Books/', views.Books, name='Books'),
+    path('PDF/', views.PDF, name='PDF'),
     path('delBook/<int:pk>/', views.delBook, name='delBook'),
     path('students/', views.Students, name='Students'),
     path('delStudents/<int:pk>/', views.delStudents, name='delStudents'),
