@@ -244,7 +244,8 @@ from django.http import FileResponse
 import io
 from reportlab.lib.units import inch
 
-def PDF(req):
+def PDFBooks(req):
+    # req.POST.get('Name', False) # this will return Name if it's checked and False if it's not
     books = models.Book.objects.all()
     buffer = io.BytesIO()
 
@@ -253,16 +254,32 @@ def PDF(req):
     elements = []
 
     # Define column headers and calculate column widths
-    columns = ["Name", "Price", "Category", "Author"]
-    col_widths = [int(letter[0]*0.15), int(letter[0]*0.1), int(letter[0]*0.15), int(letter[0]*0.2)]
+    columns = ["Name", "Price", "Desc","cat","auther"]
+    selected_columns=[]
+    for c in columns:
+        if c==req.POST.get(c, False):
+            selected_columns.append(c)
+    # col_widths = [int(letter[0]*0.15), int(letter[0]*0.1), int(letter[0]*0.15), int(letter[0]*0.2)]
 
     # Create table data
-    data = [columns]
+    data = [selected_columns]
     for b in books:
-        data.append([b.Name, str(b.Price), b.cat.Name, b.auther.Name])
+        row = []
+        for c in selected_columns:
+            if c == 'Name':
+                row.append(b.Name)
+            elif c == 'Price':
+                row.append(b.Price)
+            elif c == 'Desc':
+                row.append(b.Desc)
+            elif c == 'cat':
+                row.append(b.cat)
+            elif c == 'auther':
+                row.append(b.auther)
+        data.append(row)
 
     # Create table and add to elements list
-    table = Table(data, colWidths=col_widths)
+    table = Table(data)
     table.setStyle(TableStyle([
         ('BACKGROUND', (0, 0), (-1, 0), colors.grey),
         ('TEXTCOLOR', (0, 0), (-1, 0), colors.whitesmoke),
@@ -291,4 +308,4 @@ def PDF(req):
     # Build PDF document and return response
     doc.build(elements)
     buffer.seek(0)
-    return FileResponse(buffer, as_attachment=True, filename='Books.pdf')
+    return FileResponse(buffer, as_attachment=True, filename='Books Table.pdf')

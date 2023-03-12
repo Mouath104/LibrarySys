@@ -256,6 +256,18 @@ button[disabled] {
 /*Student Table*/
 
 /*Add Button*/
+
+.add-btn button{
+  background-color: var(--c1);
+  color: white;
+  text-decoration: none;
+  user-select: none;
+  padding: 5px;
+  border-radius: 3px;
+  cursor: pointer;
+  border: none;
+  font-size: 1.03em;
+}
 .add-btn {
   margin-top: 10px;
   text-align: center;
@@ -267,8 +279,14 @@ button[disabled] {
     padding: 5px;
     border-radius: 3px;
 }
-
-
+.bok th div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.bok th div span{
+  margin-left: 5px;
+}
 .isbok .styled-table .Name li{
  list-style: none;
 }
@@ -680,3 +698,10 @@ input[type=file]:hover,input[type=file]:active,input[type=file]:focus {
   animation: fadeInUp 0.2s;
 }
 
+/* active */
+.deactive{
+  display: none;
+}
+.active{
+  display: block;
+}

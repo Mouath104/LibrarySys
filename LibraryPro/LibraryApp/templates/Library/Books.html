@@ -1,40 +1,42 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
-
-
-
 <div class="mytable bok">
+    <form method="post" action="{% url 'LibraryApp:PDFBooks' %}">
+        {% csrf_token %}
     <div class="add-btn">
         <a href="{% url 'LibraryApp:AddBooks' %}"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Add Books</a>
-        <a href="{% url 'LibraryApp:PDF' %}"><i class="fa fa-print" aria-hidden="true"></i> Print</a>
+        <button type="submit"><i class="fa fa-print" aria-hidden="true"></i> Print</button>
+        <button type="button" id="select_columns">Select Columns</a>
     </div>
     <table class="styled-table">
-        <th>Name</th>
-        <th>Price</th>
-        <th>Desc</th>
-        <th>Category</th>
-        <th>Auther</th>
-        <th>Remove</th>
-        {% for i in books %}
-        <tr>
-            <td>{{i.Name}}</td>
-            <td>{{i.Price}}</td>
-            <td>{{i.Desc}}</td>
-            <td>{{i.cat.Name}}</td>
-            <td>{{i.auther.Name}}</td>
-            <td><a href="{% url 'LibraryApp:delBook' i.id %}"><i class="fa fa-minus-square" aria-hidden="true"></i></a></td>
-        </tr>
-        {% empty %}
-        <tr>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-            <td>No Issued Books</td>
-            <td>-</td>
-            <td>-</td>
-        </tr>
-        {% endfor %}
+            <th><div><input type="checkbox" name="Name" value="Name" checked class="deactive"><span>Name</span></div></th>
+            <th><div><input type="checkbox" name="Price" value="Price" checked class="deactive"><span>Price</span></div></th>
+            <th><div><input type="checkbox" name="Desc" value="Desc" checked class="deactive"><span>Desc</span></div></th>
+            <th><div><input type="checkbox" name="cat" value="cat" checked class="deactive"><span>Category</span></div></th>
+            <th><div><input type="checkbox" name="auther" value="auther" checked class="deactive"><span>Auther</span></div></th>
+            <th>Remove</th>
+            {% for i in books %}
+            <tr>
+                <td>{{i.Name}}</td>
+                <td>{{i.Price}}</td>
+                <td>{{i.Desc}}</td>
+                <td>{{i.cat.Name}}</td>
+                <td>{{i.auther.Name}}</td>
+                <td><a href="{% url 'LibraryApp:delBook' i.id %}"><i class="fa fa-minus-square" aria-hidden="true"></i></a></td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>No Issued Books</td>
+                <td>-</td>
+                <td>-</td>
+            </tr>
+            {% endfor %}
+            </form>
     </table>
 </div>
+<script src="{% static 'js/checkbox.js' %}"></script>
 {% endblock %}
