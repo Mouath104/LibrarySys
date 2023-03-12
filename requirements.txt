@@ -6,10 +6,12 @@ anaconda-navigator==2.1.4
 anaconda-project @ file:///tmp/build/80754af9/anaconda-project_1637161053845/work
 anyio @ file:///C:/ci/anyio_1644481921011/work/dist
 appdirs==1.4.4
+arabic-reshaper==3.0.0
 argon2-cffi @ file:///opt/conda/conda-bld/argon2-cffi_1645000214183/work
 argon2-cffi-bindings @ file:///C:/ci/argon2-cffi-bindings_1644551690056/work
 arrow @ file:///opt/conda/conda-bld/arrow_1649166651673/work
 asgiref==3.5.2
+asn1crypto==1.5.1
 astroid @ file:///C:/ci/astroid_1628063282661/work
 astropy @ file:///C:/ci/astropy_1650634291321/work
 asttokens @ file:///opt/conda/conda-bld/asttokens_1646925590279/work
@@ -61,6 +63,7 @@ constantly==15.1.0
 cookiecutter @ file:///opt/conda/conda-bld/cookiecutter_1649151442564/work
 cryptography @ file:///C:/ci/cryptography_1633520531101/work
 cssselect==1.1.0
+cssselect2==0.7.0
 cycler @ file:///tmp/build/80754af9/cycler_1637851556182/work
 Cython @ file:///C:/ci/cython_1647850559892/work
 cytoolz==0.11.0
@@ -74,8 +77,9 @@ decorator @ file:///opt/conda/conda-bld/decorator_1643638310831/work
 defusedxml @ file:///tmp/build/80754af9/defusedxml_1615228127516/work
 diff-match-patch @ file:///Users/ktietz/demo/mc3/conda-bld/diff-match-patch_1630511840874/work
 distributed @ file:///opt/conda/conda-bld/distributed_1647271944416/work
-Django==4.1.1
+Django==4.1.7
 django-crispy-forms==1.14.0
+django-easy-pdf==0.1.2.dev1
 djangorestframework==3.14.0
 docutils @ file:///C:/ci/docutils_1620828264669/work
 entrypoints @ file:///C:/ci/entrypoints_1649926621128/work
@@ -86,6 +90,7 @@ filelock @ file:///opt/conda/conda-bld/filelock_1647002191454/work
 flake8 @ file:///tmp/build/80754af9/flake8_1620776156532/work
 Flask @ file:///home/ktietz/src/ci/flask_1611932660458/work
 fonttools==4.25.0
+fpdf==1.7.2
 frozenlist @ file:///C:/ci/frozenlist_1637767271796/work
 fsspec @ file:///opt/conda/conda-bld/fsspec_1647268051896/work
 future @ file:///C:/ci/future_1607568713721/work
@@ -103,6 +108,7 @@ grpcio @ file:///C:/ci/grpcio_1637590978642/work
 h5py @ file:///C:/ci/h5py_1637120894255/work
 HeapDict @ file:///Users/ktietz/demo/mc3/conda-bld/heapdict_1630598515714/work
 holoviews @ file:///opt/conda/conda-bld/holoviews_1645454331194/work
+html5lib==1.1
 hvplot @ file:///tmp/build/80754af9/hvplot_1627305124151/work
 hyperlink @ file:///tmp/build/80754af9/hyperlink_1610130746837/work
 idna @ file:///tmp/build/80754af9/idna_1637925883363/work
@@ -182,6 +188,7 @@ numpydoc @ file:///opt/conda/conda-bld/numpydoc_1643788541039/work
 olefile @ file:///Users/ktietz/demo/mc3/conda-bld/olefile_1629805411829/work
 openpyxl @ file:///tmp/build/80754af9/openpyxl_1632777717936/work
 optional-django==0.1.0
+oscrypto==1.3.0
 packaging @ file:///tmp/build/80754af9/packaging_1637314298585/work
 pandas @ file:///C:/ci/pandas_1650373458095/work
 pandocfilters @ file:///opt/conda/conda-bld/pandocfilters_1643405455980/work
@@ -193,6 +200,7 @@ parso @ file:///opt/conda/conda-bld/parso_1641458642106/work
 partd @ file:///opt/conda/conda-bld/partd_1647245470509/work
 pathspec==0.7.0
 patsy==0.5.2
+pdfkit==1.0.0
 pep8==1.7.1
 pexpect @ file:///tmp/build/80754af9/pexpect_1605563209008/work
 pickleshare @ file:///tmp/build/80754af9/pickleshare_1606932040724/work
@@ -222,6 +230,8 @@ pyerfa @ file:///C:/ci/pyerfa_1621560974055/work
 pyflakes @ file:///tmp/build/80754af9/pyflakes_1617200973297/work
 Pygments @ file:///opt/conda/conda-bld/pygments_1644249106324/work
 PyHamcrest @ file:///tmp/build/80754af9/pyhamcrest_1615748656804/work
+pyHanko==0.17.2
+pyhanko-certvalidator==0.20.1
 PyJWT @ file:///C:/ci/pyjwt_1619682721924/work
 pylint @ file:///C:/ci/pylint_1627536884966/work
 pyls-spyder==0.4.0
@@ -229,10 +239,13 @@ PyNaCl @ file:///C:/ci/pynacl_1607612759007/work
 pyodbc @ file:///C:/ci/pyodbc_1647426110990/work
 pyOpenSSL @ file:///tmp/build/80754af9/pyopenssl_1635333100036/work
 pyparsing @ file:///tmp/build/80754af9/pyparsing_1635766073266/work
+pypdf==3.5.1
+pypng==0.20220715.0
 pyreadline==2.1
 pyrsistent @ file:///C:/ci/pyrsistent_1636093225342/work
 PySocks @ file:///C:/ci/pysocks_1605307512533/work
 pytest==7.1.1
+python-bidi==0.4.2
 python-dateutil @ file:///tmp/build/80754af9/python-dateutil_1626374649649/work
 python-lsp-black @ file:///tmp/build/80754af9/python-lsp-black_1634232156041/work
 python-lsp-jsonrpc==1.0.0
@@ -240,6 +253,7 @@ python-lsp-server==1.2.4
 python-slugify @ file:///tmp/build/80754af9/python-slugify_1620405669636/work
 python-snappy @ file:///C:/ci/python-snappy_1610133405910/work
 pytz==2021.3
+pytz-deprecation-shim==0.1.0.post0
 pyviz-comms @ file:///tmp/build/80754af9/pyviz_comms_1623747165329/work
 PyWavelets @ file:///C:/ci/pywavelets_1648728084106/work
 pywin32==302
@@ -248,6 +262,7 @@ pywinpty @ file:///C:/ci_310/pywinpty_1644230983541/work/target/wheels/pywinpty-
 PyYAML==6.0
 pyzmq @ file:///C:/ci/pyzmq_1638435148211/work
 QDarkStyle @ file:///tmp/build/80754af9/qdarkstyle_1617386714626/work
+qrcode==7.4.2
 qstylizer @ file:///tmp/build/80754af9/qstylizer_1617713584600/work/dist/qstylizer-0.1.10-py2.py3-none-any.whl
 QtAwesome @ file:///tmp/build/80754af9/qtawesome_1637160816833/work
 qtconsole @ file:///opt/conda/conda-bld/qtconsole_1649078897110/work
@@ -255,6 +270,7 @@ QtPy @ file:///opt/conda/conda-bld/qtpy_1649073884068/work
 queuelib==1.5.0
 redis==4.5.1
 regex @ file:///C:/ci/regex_1648447888413/work
+reportlab==3.6.12
 requests @ file:///opt/conda/conda-bld/requests_1641824580448/work
 requests-file @ file:///Users/ktietz/demo/mc3/conda-bld/requests-file_1629455781986/work
 rope @ file:///opt/conda/conda-bld/rope_1643788605236/work
@@ -291,6 +307,7 @@ SQLAlchemy @ file:///C:/ci/sqlalchemy_1647600017103/work
 sqlparse==0.4.3
 stack-data @ file:///opt/conda/conda-bld/stack_data_1646927590127/work
 statsmodels==0.13.2
+svglib==1.5.1
 sweetify==2.3.1
 sympy @ file:///C:/ci/sympy_1647853873858/work
 tables==3.6.1
@@ -306,6 +323,7 @@ threadpoolctl @ file:///Users/ktietz/demo/mc3/conda-bld/threadpoolctl_1629802263
 three-merge @ file:///tmp/build/80754af9/three-merge_1607553261110/work
 tifffile @ file:///tmp/build/80754af9/tifffile_1627275862826/work
 tinycss @ file:///tmp/build/80754af9/tinycss_1617713798712/work
+tinycss2==1.2.1
 tldextract @ file:///opt/conda/conda-bld/tldextract_1646638314385/work
 toml @ file:///tmp/build/80754af9/toml_1616166611790/work
 tomli @ file:///tmp/build/80754af9/tomli_1637314251069/work
@@ -319,8 +337,10 @@ txaio==23.1.1
 typed-ast @ file:///C:/ci/typed-ast_1624953797214/work
 typing_extensions @ file:///opt/conda/conda-bld/typing_extensions_1647553014482/work
 tzdata==2022.4
+tzlocal==4.2
 ujson @ file:///C:/ci/ujson_1648044223886/work
 Unidecode @ file:///tmp/build/80754af9/unidecode_1614712377438/work
+uritools==4.0.1
 urllib3 @ file:///C:/ci/urllib3_1650639883891/work
 w3lib @ file:///Users/ktietz/demo/mc3/conda-bld/w3lib_1629359764703/work
 watchdog @ file:///C:/ci/watchdog_1638367441841/work
@@ -332,8 +352,10 @@ widgetsnbextension @ file:///C:/ci/widgetsnbextension_1644991377168/work
 win-inet-pton @ file:///C:/ci/win_inet_pton_1605306162074/work
 win-unicode-console==0.5
 wincertstore==0.2
+wkhtmltopdf==0.2
 wrapt @ file:///C:/ci/wrapt_1607574570428/work
 xarray @ file:///opt/conda/conda-bld/xarray_1639166117697/work
+xhtml2pdf==0.2.9
 xlrd @ file:///tmp/build/80754af9/xlrd_1608072521494/work
 XlsxWriter @ file:///opt/conda/conda-bld/xlsxwriter_1649073856329/work
 xlwings==0.24.9
