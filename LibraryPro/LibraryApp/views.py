@@ -260,7 +260,8 @@ def PDFBooks(req):
         if c==req.POST.get(c, False):
             selected_columns.append(c)
     # col_widths = [int(letter[0]*0.15), int(letter[0]*0.1), int(letter[0]*0.15), int(letter[0]*0.2)]
-
+    if len(selected_columns) == 0:
+        return HttpResponse("Should at Least select 1 column!")
     # Create table data
     data = [selected_columns]
     for b in books:
