@@ -279,6 +279,12 @@ button[disabled] {
     padding: 5px;
     border-radius: 3px;
 }
+.bok a{
+  text-decoration: none;
+}
+.bok td:hover{
+  background-color: rgba(0, 0, 0, 0.035);
+}
 .bok th div {
   display: flex;
   flex-direction: row;
@@ -464,7 +470,7 @@ button[disabled] {
 }
 
 /* Issue Book Table*/
-.IssueABookForm .Father div,h2{
+.IssueABookForm .Father div,.IssueABookForm .Father h2{
   padding-bottom: 20px;
   display: flex;
   align-items: center;
@@ -696,6 +702,84 @@ input[type=file]:hover,input[type=file]:active,input[type=file]:focus {
 }
 .IssueABookForm select.fadeOut,.addBooksForm select.fadeOut,.addStudentForm select.fadeOut{
   animation: fadeInUp 0.2s;
+}
+
+
+/* Book Details */
+.bookDetails{
+  background-color: rgba(255, 255, 255, 0.86);
+  padding: 50px;
+  max-width: 800px;
+  height: 600px;
+  margin: 20px auto;
+  border-radius: 4px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
+}
+
+.bookDetails .left img{
+  max-width: 400px;
+}
+.bookDetails .right .cat{
+  background-color: var(--c2);
+  color: white;
+  padding: 4px;
+  border-radius: 4px;
+  user-select: none;
+  max-width: fit-content;
+}
+.bookDetails .right{
+  display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 93%;
+}
+.bookDetails .right .header{
+  display: flex;
+}
+.bookDetails .right .Desc{
+  max-width: 300px;
+}
+.bookDetails .right .auther{
+  background-color: var(--c0);
+  color: white;
+  padding: 4px;
+  border-radius: 4px;
+  user-select: none;
+  max-width: fit-content;
+  margin-left: 10px;
+}
+.bookDetails .right .price{
+  background-color: green;
+  color: white;
+  padding: 4px;
+  border-radius: 4px;
+  user-select: none;
+  max-width: fit-content;
+  font-size: 1.7em;
+}
+.bookDetails .right > h2,div{
+  margin-bottom: 15px;
+}
+@media only screen and (max-width:900px){
+
+  .bookDetails{
+    padding: 20px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.bookDetails .left img{
+  max-width: 250px;
+}
+
+.bookDetails .right .Desc{
+  max-width: 260px;
+}
+
 }
 
 /* active */

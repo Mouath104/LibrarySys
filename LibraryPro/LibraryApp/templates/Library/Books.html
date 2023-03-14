@@ -12,15 +12,15 @@
     <table class="styled-table">
             <th><div><input type="checkbox" name="Name" value="Name" checked class="deactive"><span>Name</span></div></th>
             <th><div><input type="checkbox" name="Price" value="Price" checked class="deactive"><span>Price</span></div></th>
-            <th><div><input type="checkbox" name="Desc" value="Desc" checked class="deactive"><span>Desc</span></div></th>
+            {% comment %}<th><div><input type="checkbox" name="Desc" value="Desc" checked class="deactive"><span>Desc</span></div></th>{% endcomment %}
             <th><div><input type="checkbox" name="cat" value="cat" checked class="deactive"><span>Category</span></div></th>
             <th><div><input type="checkbox" name="auther" value="auther" checked class="deactive"><span>Auther</span></div></th>
             <th>Remove</th>
             {% for i in books %}
             <tr>
-                <td>{{i.Name}}</td>
+                <td><a href="{% url 'LibraryApp:bookDetails' i.id %}">{{i.Name}}</a></td>
                 <td>{{i.Price}}</td>
-                <td>{{i.Desc}}</td>
+                {% comment %}<td>{{i.Desc}}</td>{% endcomment %}
                 <td>{{i.cat.Name}}</td>
                 <td>{{i.auther.Name}}</td>
                 <td><a href="{% url 'LibraryApp:delBook' i.id %}"><i class="fa fa-minus-square" aria-hidden="true"></i></a></td>

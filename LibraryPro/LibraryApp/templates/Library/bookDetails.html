@@ -1,7 +1,26 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="BookDetails">
-    <p>{{book.Name}}</p>
+{% load static %}
+<div class="bookDetails">
+    <div class="left">
+        <img src="{% static 'images/book1.png' %}" alt="">
+    </div>
+    <div class="right">
+        <div>
+            <h1>{{book.Name}}</h1>
+            <div class="header">        
+                <p class="cat"><i class="fa fa-snowflake-o" aria-hidden="true"></i> {{book.cat.Name}}</p>
+                <p class="auther"><i class="fa fa-user" aria-hidden="true"></i> {{book.auther.Name}}</p>
+            </div>
+            <h2>Description</h2>
+            <p class="Desc">{{book.Desc}}</p>
+        </div>
+        <div>
+            <span class="price">Price: {{book.Price}} $</span>
+        </div>
+
+
+    </div>
 </div>
 {% endblock %}
