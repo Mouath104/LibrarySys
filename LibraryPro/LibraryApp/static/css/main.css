@@ -721,6 +721,17 @@ input[type=file]:hover,input[type=file]:active,input[type=file]:focus {
 .bookDetails .left img{
   max-width: 400px;
 }
+.bookDetails .left{
+  position: relative;
+}
+.bookDetails .left .cust {
+  position: absolute;
+  left: 20px;
+  font-size: 5em;
+  top: -6px;
+  color: var(--c0);
+
+}
 .bookDetails .right .cat{
   background-color: var(--c2);
   color: white;

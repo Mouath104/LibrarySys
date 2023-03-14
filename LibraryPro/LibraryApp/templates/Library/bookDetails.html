@@ -4,6 +4,11 @@
 {% load static %}
 <div class="bookDetails">
     <div class="left">
+        {% if issued %}
+        <i class="fa fa-bookmark cust active" aria-hidden="true" title="Issued"></i>
+        {% else %}
+        <i class="fa fa-bookmark deactive" aria-hidden="true"></i>
+        {% endif %}
         <img src="{% static 'images/book1.png' %}" alt="">
     </div>
     <div class="right">

@@ -226,8 +226,10 @@ def retract(req,pk):
 def bookDetails(req,pk):
     if(req.user.is_authenticated):
         book=models.Book.objects.get(id=pk)
-        con={
-            'book':book
+        issued = models.Issued_Book.objects.filter(book=book).exists()
+        con = {
+            'book': book,
+            'issued': issued
         }
         return render(req,'Library/bookDetails.html',con)
     else:
