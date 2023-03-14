@@ -4,6 +4,9 @@
   padding: 0;
   font-family: 'Ubuntu', sans-serif;
 }
+body{
+  font-size: 1.2em;
+}
 body .container{
   position: relative;
 }
@@ -27,6 +30,7 @@ body .container::before {
   --footer:#f3f3f3;
   --Nav:#ff9e5e;
 }
+
 /*Navbar*/
 
 .navbar div{
@@ -256,7 +260,9 @@ button[disabled] {
 /*Student Table*/
 
 /*Add Button*/
-
+button:hover,a:hover,input:hover{
+  opacity: .9;
+}
 .add-btn button{
   background-color: var(--c1);
   color: white;
@@ -770,11 +776,13 @@ input[type=file]:hover,input[type=file]:active,input[type=file]:focus {
   max-width: fit-content;
   font-size: 1.7em;
 }
-.bookDetails .right > h2,div{
+.bookDetails .right > h2,.bookDetails .right > div{
   margin-bottom: 15px;
 }
 @media only screen and (max-width:900px){
-
+  body{
+    font-size: 1em;
+  }
   .bookDetails{
     padding: 20px;
     display: flex;
