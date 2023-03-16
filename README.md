@@ -19,7 +19,7 @@ Key Features
 - Responsive design: The app is optimized for different screen sizes and devices.
 - Availability Check: Prevent Issuing Already Issued Books. If the Book has been already issued, it won't be available to issue later, unless the Librarian removes it from the Issued Books table.
 
-# What it looks like
+# Demo:
 ## As an Admin User:
 Home Page:
 
