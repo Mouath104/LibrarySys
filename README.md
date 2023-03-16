@@ -12,8 +12,8 @@ Key Features
 
 # How it looks like
 
-Home Page:
-![ezgif com-video-to-gif](https://user-images.githubusercontent.com/89397795/225556566-3f1d276a-498e-4825-871e-511cb082f492.gif)
+
+Home Page:![ezgif com-video-to-gif](https://user-images.githubusercontent.com/89397795/225556566-3f1d276a-498e-4825-871e-511cb082f492.gif)
 
 
 # Activate the Environment:
