@@ -10,11 +10,16 @@ Key Features
 - Responsive design: The app is optimized for different screen sizes and devices.
 - Availability Check: Prevent Issuing Already Issued Books. If the Book has been already issued, it won't be available to issue later, unless the Librarian removes it from the Issued Books table.
 
-# How it looks like
+# What it looks like
 Home Page:
 
 ![ezgif com-video-to-gif](https://user-images.githubusercontent.com/89397795/225556566-3f1d276a-498e-4825-871e-511cb082f492.gif)
 
+Issue A Book:
+
+![Library - Google Chrome 2023-03-16 10-29-28](https://user-images.githubusercontent.com/89397795/225559729-8fb91c3a-da10-4c56-93c2-9819c1cc0107.gif)
+
+Note: you select books and students from a List but it's not Appearing in the GIF
 
 # Activate the Environment:
 myenv/scripts/activate
