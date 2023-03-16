@@ -13,7 +13,7 @@ Key Features
 # What it looks like (you may click on each GIF for better view)
 Home Page:
 
-
+![Library - Google Chrome 2023-03-16 10-47-46](https://user-images.githubusercontent.com/89397795/225563914-6d1d3c49-61d5-4bd8-90d2-cdd210d163a3.gif)
 
 Issue A Book:
 
