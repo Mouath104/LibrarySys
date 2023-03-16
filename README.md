@@ -59,3 +59,7 @@ myenv/scripts/activate
 
 # Install Packages:
 pip install -r requirements.txt
+
+# Credentials:
+admin user  : power2 | pass: 104
+normal user : orange | pass: Mekasa104@
