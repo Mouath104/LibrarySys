@@ -21,7 +21,7 @@ Key Features
 
 # Demo:
 
-URL : http://13.50.100.97:8000/
+URL (Credentials down Below) : http://13.50.100.97:8000/
 
 ## As an Admin User:
 Home Page:
