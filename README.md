@@ -20,6 +20,9 @@ Key Features
 - Availability Check: Prevent Issuing Already Issued Books. If the Book has been already issued, it won't be available to issue later, unless the Librarian removes it from the Issued Books table.
 
 # Demo:
+
+URL : http://13.50.100.97:8000/
+
 ## As an Admin User:
 Home Page:
 
